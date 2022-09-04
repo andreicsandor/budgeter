@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
-from .forms import LoginForm, UserForm, TransactionForm
+from .forms import LoginForm, UserForm, ProfileForm, TransactionForm
 from .models import Profile, Currency, Type, Category, Transaction
 
 
@@ -56,6 +56,27 @@ def account_view(request):
     }
 
     return render(request, "forms/account.html", context)
+
+
+@login_required
+def preferences_view(request):
+    """
+    Displays the preferences page.
+    """
+    user = User.objects.get(pk=request.user.id)
+    profile = Profile.objects.get(user=user)
+    form = ProfileForm(instance=profile)
+    if request.method == "POST":
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.save()
+            return redirect('/account')
+    context = {
+        "form": form
+    }
+
+    return render(request, "forms/preferences.html", context)
 
 
 @login_required

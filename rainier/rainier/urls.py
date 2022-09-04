@@ -22,6 +22,7 @@ urlpatterns = [
     path('login', views.login_view, name='login'),
     path('logout', views.logout_view, name='logout'),
     path('account', views.account_view, name='account'),
+    path('preferences', views.preferences_view, name='preferences'),
     path('', views.home_view, name='home'),
     path('create', views.create_view, name='create'),
     path('edit/<str:pk>', views.edit_view, name='edit'),

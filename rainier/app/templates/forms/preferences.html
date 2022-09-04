@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}
+    Preferences — Budget
+{% endblock %}
+{% block content %}
+
+<body id="page-main">
+    
+    <!-- Main content of the page -->
+    <main role="main">
+
+        <!-- Modal -->
+        <div class="modal position-static d-block pt-3 pb-5" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" id="modal-content" name="modal-content">
+                    <div class="modal-header p-5 pb-2 border-bottom-0">
+                        <h3 class="fw-bold mb-0">Preferences</h3>
+                        <button type="button" class="btn-close" onclick="location.href='/account'"></button>
+                    </div>
+                    <div class="modal-header p-5 pt-0 pb-4 border-bottom-0">
+                        <h6 class="text-muted" id="subtitle-type" name="subtitle-type">Update your profile settings.</h6>
+                    </div>
+                    <div class="modal-body p-5 pt-2">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-floating mb-3 pb-4" id="input-currency" name="input-currency">
+                                {{ form.currency }}
+                                <label for="input-currency">Currency</label>
+                            </div>   
+                            <div class="wrapper-buttons">
+                                <input class="btn btn-dark w-100" id="button-submit" name="button-submit" type="submit" value="Update" style="margin: 3% 0% 0% 0%;"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+{% endblock %}

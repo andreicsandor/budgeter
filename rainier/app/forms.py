@@ -19,6 +19,14 @@ class UserForm(UserChangeForm):
         fields = ('username', 'first_name', 'last_name', 'email')
 
 
+class ProfileForm(forms.ModelForm):
+    currency = forms.ModelChoiceField(queryset=Currency.objects.all(), empty_label="Pick your prefered currency...", widget=forms.Select(attrs = {"class" : "form-select"}))
+
+    class Meta:
+        model = Profile
+        fields = ('currency',)
+
+
 class TransactionForm(forms.ModelForm):
     type = forms.ModelChoiceField(queryset=Type.objects.all(), empty_label="Select type...", widget=forms.Select(attrs = {"class" : "form-select"}))
     name = forms.CharField(widget=forms.TextInput(attrs = {"type": "text", "class": "form-control", "placeholder": "Name"}))
