@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}
+    Entries — Budget
+{% endblock %}
+{% block content %}
+
+<body id="page-main">
+
+    <!-- Main content of the page -->
+    <main role="main">
+
+        <!-- Main card -->
+        <div class="modal position-static d-block pb-5" tabindex="-1" role="dialog ">
+            <div class="modal-dialog modal-lg mt-4">
+                <div class="modal-content" id="modal-content" name="modal-content">
+                    <div class="modal-header p-5 pb-0 border-bottom-0">
+                        <h4 class="fw-bold mb-0" id="title-type" name="title-type">All transactions</h4>
+                        <!-- <button type="button" class="btn-close" onclick="location.href='.'"></button> -->
+                    </div>
+                    <div class="modal-header p-5 pt-0 pb-0 border-bottom-0">
+                        <h6 class="fw-semibold text-muted" id="subtitle-type" name="subtitle-type">Here are your budget entries.</h6>
+                    </div>
+                    <div class="modal-body">
+                        {% csrf_token %}
+                        <div class="mb-3" id="container-scrolling" name="container-scrolling">
+                            <!-- Adds date & count badge -->
+                            <div class="list-group">
+                            {% if transactions|length == 0 %}
+                                <br><br><br><h6 class="fw-semibold text-muted" style="text-align: center;">Hmm, there is nothing here.</h6><br><br><br>
+                            {% else %}
+                                {% for day, statistics in summary_daily.items %}
+                                    <ul class="list-group list-group-flush">
+                                        <small class="list-group-item d-flex justify-content-between" id="card-date" name="card-date">
+                                            <span>{{ day }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="position-absolute top-50 translate-middle badge rounded-pill bg-danger">{{ statistics.0 }}</span></span>
+                                            <span>{{ statistics.1 | floatformat:2 }} {{ currency_short }}</span>
+                                        </small>
+                                    </ul>
+                                    <!-- Loads all transactions for the corresponding date-->
+                                    <div class="list-group">
+                                    {% for entry in transactions %}
+                                        {% if entry.date == day %}
+                                        <a class="list-group-item list-group-item-action" id="card-item" name="card-item" href="{% url 'edit' entry.id %}">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h6 class="mb-1 fw-normal">{{ entry.name }}</h6>
+                                                {% if entry.TransactionType == "Expense" %}
+                                                    <h6 class="mb-1 fw-semibold"><small class="fw-semibold">-</small>{{ entry.amount }} {{ currency_short }}</h6>
+                                                {% elif entry.TransactionType == "Income" %}
+                                                    <h6 class="mb-1 fw-semibold"><small class="fw-semibold">+</small>{{ entry.amount }} {{ currency_short }}</h6>
+                                                {% endif %}
+                                            </div>
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <small class="mb-1 fw-normal">{{ entry.category }}</small>
+                                                <small class="mb-1 fw-light">{{ entry.type }}</small>
+                                            </div>
+                                            <small class="mb-1">{{ entry.note }}</small>
+                                        </a>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <br>
+                                {% endfor %}
+                            {% endif %}
+                            </div>
+                        </div>
+                        <div class="wrapper-buttons pt-3">
+                            <input class="btn btn-dark w-50" id="button-submit" name="button-submit" onclick="location.href='create'" type="submit" value="Create an entry" style="margin: 0% 0% 3% 0%;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+{% endblock %} 
