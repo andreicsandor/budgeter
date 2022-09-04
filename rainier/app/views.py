@@ -122,6 +122,32 @@ def create_view(request):
     return render(request, "forms/create.html", context)
 
 
+@login_required
+def edit_view(request, pk):
+    """
+    Edit an existing transaction entry.
+    """
+    currency_short, currency_symbol = get_user_currency(request)
+
+    entry = Transaction.objects.get(id=pk)
+    form = TransactionForm(instance=entry)
+
+    if request.method == "POST":
+        form = TransactionForm(request.POST, instance=entry)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.save()
+            return redirect('/')
+    context = {
+        "form": form,
+        "id": pk,
+        "currency_short": currency_short,
+        "currency_symbol": currency_symbol
+    }
+
+    return render(request, "forms/edit.html", context)
+
+
 def categories_view(request):
     """
     Loads the corresponding categories for each type of transaction in the create entry window.
