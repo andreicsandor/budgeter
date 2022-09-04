@@ -1,0 +1,229 @@
+/* Sections */
+body {
+    min-height: 100vh;
+}
+
+ /* Classes */
+.card-title.card-title-custom {
+    margin: 6% 0% 0% 6%;
+    font-weight: bold;
+}
+
+.card-subtitle.card-subtitle-custom {
+    margin: 0% 0% 0% 6%;
+}
+
+.container {
+    min-height: 100%;
+}
+
+.form-floating.form-floating-custom {
+    width: 75%; 
+    margin: auto;
+}
+
+.input-group.input-group-custom {
+    width: 75%; 
+    margin: auto;
+}
+
+.input-row {
+    width: 75%; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.progress {
+    width: 100%;
+    margin: auto;
+    height: 12px;
+    border-radius: 3px;
+    opacity: 90%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+.progress::after {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: opacity 0.2s ease-in-out;
+}
+
+.progress:hover {
+    transform: scale(1.02, 1.02);
+    opacity: 100%;
+}
+  
+.progress:hover::after {
+    opacity: 1;
+  }
+
+.typeahead {
+    width: 15%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper-buttons {
+    text-align: center;
+}
+
+/* IDs */
+#button-clear {
+    font-weight: 500; 
+    opacity: 90%;
+    transition: 0.4s;
+}
+
+#button-clear:hover {
+    opacity: 100%;
+}
+
+#button-close {
+    position: absolute;
+    top: 5%;
+    right: 4%;
+}
+
+#button-delete {
+    margin: 3% 0% 3% 0%; 
+    font-weight: 500;
+    opacity: 90%;
+    transition: 0.5s;
+    box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+                10px 10px 15px rgba(70,70,70,0.12); 
+}
+
+#button-delete:hover {
+    margin: 3% 0% 3% 0%; 
+    font-weight: 500;
+    opacity: 90%;
+    box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+                10px 10px 15px rgba(70,70,70,0.12); 
+}
+
+#button-enter:hover {
+    opacity: 80%;
+}
+
+#button-submit {
+    margin: 3% 0% 3% 0%; 
+    font-weight: 500;  
+    box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+                10px 10px 15px rgba(70,70,70,0.12); 
+}
+
+#card-date {
+    width: 75%;
+    margin: auto;
+    font-weight: 600; 
+    border: none;
+}
+
+#card-item {
+    max-width: 75%; 
+    margin: auto;
+}
+
+#card-header {
+    border: none; 
+    border-radius: 3px;
+    box-shadow: inset -6px -6px 12px rgba(255, 255, 255, 0.3), 
+                inset 8px 8px 16px rgba(70, 70, 70, 0.05);
+    z-index: 0;
+    background-color: transparent;
+}
+
+#container-card {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#container-scrolling {
+    max-height: 400px;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+#header {
+    position: sticky;
+    top: 0px;
+    background-color: transparent;
+    backdrop-filter: blur(50px);
+    opacity: 95%;
+    transition: 0.4s;
+    z-index: 1;
+}
+
+#header:hover {
+    position: sticky;
+    top: 0px;
+    opacity: 100%;
+    box-shadow: -2px -2px 4px rgba(255,255,255,0.5),
+                2px 2px 4px rgba(70,70,70,0.12);
+    z-index: 1;
+}
+
+#modal-content {
+    border: none; 
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
+                0 2px 4px rgba(0,0,0,0.07), 
+                0 4px 8px rgba(0,0,0,0.07), 
+                0 8px 16px rgba(0,0,0,0.07),
+                0 16px 32px rgba(0,0,0,0.07), 
+                0 32px 64px rgba(0,0,0,0.07);
+}
+
+#modal-message {
+    border: none; 
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
+                0 2px 4px rgba(0,0,0,0.07), 
+                0 4px 8px rgba(0,0,0,0.07), 
+                0 8px 16px rgba(0,0,0,0.07),
+                0 16px 32px rgba(0,0,0,0.07), 
+                0 32px 64px rgba(0,0,0,0.07);
+}
+
+#modal-tags {
+    border: none; 
+    background-color: transparent;
+}
+
+#page-landing {
+    background-image: linear-gradient(to right top, #99c4c8, #aacdd6, #bdd5e1, #d0deea, #e1e7f1, #e8ebf4, #eff0f7, #f5f5fa, #f5f5fa, #f5f5fa, #f5f5fa, #f5f5fa);
+}
+
+#page-main {
+    background-image: linear-gradient(to right top, #d9e9eb, #deebef, #e3edf3, #e9f0f6, #eef2f8, #f0f3f9, #f3f4f9, #f5f5fa, #f5f5fa, #f5f5fa, #f5f5fa, #f5f5fa);
+}
+
+#progress-expenses {
+    background-color: #43919B;
+}
+
+#progress-income {
+    background-color: #99C4C8;
+}
+
+#search-bar {
+    opacity: 90%;
+}
+
+#tag-expenses {
+    color: #43919B;
+}
+
+#tag-income {
+    color: #99C4C8;
+}
