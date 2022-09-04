@@ -48,13 +48,6 @@ def home_view(request):
     currency_short, currency_symbol = get_user_currency(request)
     query = finder(request)
 
-    # Returns the user's balance
-    balance = 0
-    for entry in expenses:
-        balance -= entry.amount
-    for entry in income:
-        balance += entry.amount
-
     # Returns the available categories
     types = Type.objects.all().order_by('name')
     categories_expenses = Category.objects.filter(type="1").order_by('name')
@@ -83,6 +76,78 @@ def home_view(request):
 
     summary_daily = dict(zip(days, statistics))
 
+    # Returns the user's balance
+    balance = 0
+    for entry in expenses:
+        balance -= entry.amount
+    for entry in income:
+        balance += entry.amount
+
+    # Computes the expenses & income for the current month
+    expenses_current = 0
+    income_current = 0
+    day_current = datetime.datetime.now()
+    month_current = day_current.strftime("%B") 
+
+    for entry in expenses:
+        if Transaction.TransactionMonth(entry) == month_current:
+            expenses_current += entry.amount
+    for entry in income:
+        if Transaction.TransactionMonth(entry) == month_current:
+            income_current += entry.amount
+
+    # Computes the expenses & income relative to the total cash-flows
+    try:
+        expenses_relative = round(expenses_current / (expenses_current + income_current), 2) * 100
+    except ZeroDivisionError:
+        expenses_relative = 0  
+    try:
+        income_relative = round(income_current / (expenses_current + income_current), 2) * 100
+    except ZeroDivisionError:
+        income_relative = 0
+
+    # Computes the expenses & income for the previous 6 months
+    months_previous = []
+    month_current_first = day_current.replace(day=1)
+
+    for i in range(6):
+        month_previous_first = (month_current_first - datetime.timedelta(days=1)).replace(day=1)
+        month_current_first = month_previous_first
+        months_previous.append(month_current_first.strftime("%B"))
+
+    expenses_previous = dict.fromkeys(months_previous, 0)
+    for month in months_previous:
+        for entry in expenses:
+            if Transaction.TransactionMonth(entry) == month:
+                expenses_previous[month] += entry.amount
+    
+    income_previous = dict.fromkeys(months_previous, 0)
+    for month in months_previous:
+        for entry in income:
+            if Transaction.TransactionMonth(entry) == month:
+                income_previous[month] += entry.amount
+
+    # Generates the chart data for the expenses overview
+    labels_current = [Category.CategoryName(category) for category in categories_expenses]
+    data_expenses_current = dict.fromkeys(labels_current, 0)
+    
+    for entry in expenses:
+        if month_current == Transaction.TransactionMonth(entry):
+            category = Transaction.TransactionCategory(entry).replace(" ", "")[1:]
+            data_expenses_current[category] += entry.amount
+
+    for key, value in dict(data_expenses_current).items():
+        if value == 0:
+            del data_expenses_current[key]
+
+    labels_current = list(data_expenses_current.keys())
+    values_expenses_current = list(data_expenses_current.values())
+
+    # Generates the chart data for the previous expenses overview
+    labels_previous = list(income_previous.keys())
+    values_expenses_previous = list(expenses_previous.values())
+    values_income_previous = list(income_previous.values())
+
     context = {
         "transactions": query,
         "currency_short": currency_short,
@@ -92,6 +157,18 @@ def home_view(request):
         "categories_income": categories_income,
         "balance": balance,
         "summary_daily": summary_daily,
+        "month_current": month_current,
+        "expenses_current": expenses_current,
+        "income_current": income_current,
+        "expenses_previous": expenses_previous,
+        "income_previous": income_previous,
+        "expenses_relative": expenses_relative,
+        "income_relative": income_relative,
+        "labels_current": labels_current,
+        "values_expenses_current": values_expenses_current,
+        "labels_previous": labels_previous,
+        "values_expenses_previous": values_expenses_previous,
+        "values_income_previous": values_income_previous
     }
 
     return render(request, "home.html", context)

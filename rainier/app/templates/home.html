@@ -68,6 +68,63 @@
             </div>
         </header>
 
+        <!-- Header cards -->
+        <div class="container-fluid pt-2 pb-2" id="card" style="padding: 0% 15% 0% 15%;">
+            <div class="row">
+
+                <!-- Left header card -->
+                <div class="col-xs-8 col-sm-10 col-md-12 col-lg-12 col-xl-4 col-xxl-4 mb-3" id="container-card" name="container-card-left">
+                    <div class="card wrapper p-4" id="card-header" name="card-header-left">
+                        <div>
+                            <h4 class="card-title mb-2 fw-bold">Balance</h4>
+                            <h2 class="card-subtitle mb-5 fw-bold">{{ currency_symbol }}{{ balance }}</h2>
+                        </div>
+                        <div style="flex-grow: 1;"></div>
+                        <div>
+                            <h5 class="card-subtitle mb-2 fw-semibold">{{ month_current }} cash-flows</h5>
+                            <h6 class="card-subtitle mb-2 fw-bold" id="tag-expenses" name="tag-expenses"><b>-${{ expenses_current }} spent</b></h6>
+                            <h6 class="card-subtitle mb-2 fw-bold" id="tag-income" name="tag-income" style="padding: 0% 0% 5% 0%;"><b>+${{ income_current }} earned</b></h6>
+                            <div class="progress" id="progress" name="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-income" name="progress-income" role="progressbar" style="width: {{ income_relative }}%"></div>
+                                <div class="progress-bar" id="progress-expenses" name="progress-expenses" role="progressbar" style="width: {{ expenses_relative }}%"></div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Middle header card -->
+                <div class="col-xs-8 col-sm-10 col-md-6 col-lg-6 col-xl-4 col-xxl-4 mb-3" id="container-card" name="container-card-middle">
+                    <div class="card wrapper p-4" id="card-header" name="card-header-middle">
+                        <div>
+                            <h4 class="card-title fw-bold">Spendings</h4>
+                            <h5 class="card-subtitle mb-2 fw-semibold text-muted">{{ month_current }}<small>, {{ currency_short }}</small></h5>
+                        </div>
+                        <div style="flex-grow: 1;"></div>
+                        <div id="container" style="width: 75%; margin: auto;">
+                            <canvas id="chart-expenses-current"></canvas>
+                        </div>
+                        <div style="flex-grow: 1;"></div>
+                    </div>
+                </div>
+
+                <!-- Right header card -->
+                <div class="col-xs-8 col-sm-10 col-md-6 col-lg-6 col-xl-4 col-xxl-4 mb-3" id="container-card" name="container-card-right">
+                    <div class="card wrapper p-4" id="card-header" name="card-header-right">
+                        <div>
+                            <h4 class="card-title fw-bold">Rewinding</h4>
+                            <h5 class="card-subtitle mb-2 fw-semibold text-muted">Previous 6 months</h5>
+                        </div>
+                        <div style="flex-grow: 1;"></div>
+                        <div id="container" style="width: 80%; margin: auto;">
+                            <canvas id="chart-expenses-rewind"></canvas>
+                        </div>
+                        <div style="flex-grow: 1;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Main card -->
         <div class="modal position-static d-block pb-5" tabindex="-1" role="dialog ">
             <div class="modal-dialog modal-lg mt-4">
