@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% block title %}
+    New Entry — Budget
+{% endblock %}
+{% block content %}
+
+<body id="page-main">
+    
+    <!-- Header -->
+    <header class="py-3 mb-3" id="header" name="header">
+        <div class="container">
+            <div class="d-flex align-items-center">
+                <!-- Filters & tags dropdowns -->
+                <ul class="nav col-4 ms-1 me-auto">
+                        
+                    <!-- Entry types dropdown -->
+                    <div class="button" id="dropdown-types" name="dropdown-types" style="opacity: 50%; pointer-events:none">
+                        <a class="align-items-center link-secondary text-decoration-none" id="button-header" name="button-types" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg class="bi me-2" xmlns="http://www.w3.org/2000/svg" width="38" height="23" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                <path d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Entry categories dropdown -->
+                    <div class="button" id="dropdown-categories" name="dropdown-categories" style="opacity: 50%; pointer-events:none">
+                        <a class="align-items-center link-secondary text-decoration-none" id="button-header" name="button-categories" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg class="bi me-2" xmlns="http://www.w3.org/2000/svg" width="38" height="23" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                <path d="M1.293 7.793A1 1 0 0 1 1 7.086V2a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l.043-.043-7.457-7.457z"/>
+                            </svg>
+                        </a>     
+                    </div>
+                    
+                    <!-- Advanced filter menu -->
+                    <div class="button" id="show-finder" name="show-finder" data-bs-toggle="window-finder" data-bs-target="#window-finder" style="opacity: 50%; pointer-events:none"> 
+                        <a class="align-items-center link-secondary text-decoration-none" id="button-header" name="button-filter" href="#" data-bs-toggle="offcanvas" data-bs-target="#window-finder" aria-expanded="false">
+                            <svg class="bi me-2" xmlns="http://www.w3.org/2000/svg" width="38" height="22" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </ul>
+
+                <!-- Search bar -->
+                <form class="nav col-6 col-lg-4 me-3" id="search-bar" name="search-bar" method="GET" action="." role="search" style="opacity: 50%; pointer-events:none">
+                    <input class="form-control form-control-suggestions" id="input-search" name="input-search" type="search" data-provide="typeahead" placeholder="Search" aria-label="Search" disabled>
+                </form>
+                
+                <!-- Settings dropdown -->
+                <div class="nav col-auto">
+                    <a class="align-items-center link-secondary text-decoration-none" id="button-header" name="button-settings" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg class="bi me-2" xmlns="http://www.w3.org/2000/svg" width="38" height="22" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end text-small shadow">
+                        <li><a class="dropdown-item" href="/account">Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content of the page -->
+    <main role="main">
+        
+        <!-- Main card -->
+        <div class="modal position-static d-block pt-3 pb-5" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" id="modal-content" name="modal-content">
+                    <div class="modal-header p-5 pb-0 border-bottom-0">
+                        <h4 class="fw-bold mb-0" id="title-type" name="title-type">Add transaction</h4>
+                        <button type="button" class="btn-close" onclick="location.href='/'"></button>
+                    </div>
+                    <div class="modal-header p-5 pt-0 pb-3 border-bottom-0">
+                        <h6 class="fw-semibold text-muted" id="subtitle-type" name="subtitle-type">Create a new entry for your budget.</h6>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-transaction" name="form-transaction" method="POST" data-categories-url="{% url 'ajax_categories' %}">
+                            <!-- Loads each field of the form -->
+                            {% csrf_token %}
+                            <div class="form-floating form-floating-custom" id="input-type" name="input-type">
+                                {{ form.type }}
+                                <label for="input-type">Did you spend or earn some money?</label>
+                            </div>
+                            <br>
+                            <div class="form-floating form-floating-custom" id="input-name" name="input-name">
+                                {{ form.name }}
+                                <label for="input-name">Name</label>
+                            </div>
+                            <br>
+                            <div class="input-group input-group-custom">
+                                <span class="input-group-text">{{ currency_symbol }}</span>
+                                {{ form.amount }}
+                                <span class="input-group-text">.00</span>
+                            </div>
+                            <br>
+                            <div class="input-group input-group-custom">
+                                <label class="input-group-text">Date</label>
+                                {{ form.date }}
+                            </div>
+                            <br>
+                            <div class="form-floating form-floating-custom" id="input-category" name="input-category">
+                                {{ form.category }}
+                                <label for="input-category">Where did the money go or come from?</label>
+                            </div>
+                            <br>
+                            <div class="form-floating form-floating-custom" id="input-note" name="input-note">
+                                {{ form.note }}
+                                <label for="input-note" class="fw-light">Note (Optional)</label>
+                            </div>
+                            <br>
+                            <div class="wrapper-buttons pt-3">
+                                <input class="btn btn-dark w-50" id="button-submit" name="button-submit" type="submit" value="Save" style="margin: 0% 0% 3% 0%;"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>          
+    </main>
+</body>
+
+
+<!-- Scripts -->
+
+
+<!-- Loads the corresponding categories -->
+<script>
+    $("#id_type").change(function () {
+        const url = $("#form-transaction").attr("data-categories-url");  
+        const typeId = $(this).val();
+    
+        $.ajax({ 
+            url: url,  
+            data: {
+                'type_id': typeId      
+            },
+            success: function (data) {
+                $("#id_category").html(data);
+            }
+        });
+    });
+</script>
+
+{% endblock %}

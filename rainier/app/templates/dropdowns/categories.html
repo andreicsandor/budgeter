@@ -1,0 +1,9 @@
+<option value="">
+    Select category...
+</option>
+
+{% for category in categories %}
+<option value="{{ category.pk }}">
+    {{ category.logo }}&nbsp;&nbsp;&nbsp;{{ category.name }}
+</option>
+{% endfor %}

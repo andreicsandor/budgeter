@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
-from .forms import LoginForm
+from .forms import LoginForm, TransactionForm
 from .models import Profile, Currency, Type, Category, Transaction
 
 
@@ -94,6 +94,41 @@ def home_view(request):
     return render(request, "home.html", context)
 
 
+@login_required
+def create_view(request):
+    """
+    Creates a new transaction entry.
+    """
+    currency_short, currency_symbol = get_user_currency(request)
+
+    if request.method == "POST":
+        form = TransactionForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.user = User.objects.get(pk=request.user.id)
+            obj.save()
+            return redirect('/')
+    else:
+        form = TransactionForm()
+    context = {
+        "form": form,
+        "currency_short": currency_short,
+        "currency_symbol": currency_symbol
+    }
+
+    return render(request, "forms/create.html", context)
+
+
+def categories_view(request):
+    """
+    Loads the corresponding categories for each type of transaction in the create entry window.
+    """
+    type_id = request.GET.get('type_id')
+    categories = Category.objects.filter(type_id=type_id).all()
+
+    return render(request, 'dropdowns/categories.html', {'categories': categories})
+
+
 # Other functions 
 
 
@@ -106,7 +141,7 @@ def get_user_data(request):
     data = Transaction.objects.filter(user=user).order_by('-date', '-amount', 'name')
 
     return data
-    
+
 
 def group_data(data):
     """

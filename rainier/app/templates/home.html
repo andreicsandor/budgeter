@@ -98,7 +98,7 @@
                                     <div class="list-group">
                                     {% for entry in transactions %}
                                         {% if entry.date == day %}
-                                        <a class="list-group-item list-group-item-action" id="card-item" name="card-item" href="{% url 'edit' entry.id %}">
+                                        <a class="list-group-item list-group-item-action" id="card-item" name="card-item" href="">
                                             <div class="d-flex w-100 justify-content-between">
                                                 <h6 class="mb-1 fw-normal">{{ entry.name }}</h6>
                                                 {% if entry.TransactionType == "Expense" %}

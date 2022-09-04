@@ -22,4 +22,6 @@ urlpatterns = [
     path('login', views.login_view, name='login'),
     path('logout', views.logout_view, name='logout'),
     path('', views.home_view, name='home'),
+    path('create', views.create_view, name='create'),
+    path('ajax/categories/', views.categories_view, name='ajax_categories'),
 ]
