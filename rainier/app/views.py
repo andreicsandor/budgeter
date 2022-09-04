@@ -22,7 +22,7 @@ def signup_view(request):
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('/setup')
+            return redirect('/configure')
     else:
         form = SignUpForm()
     context = {
@@ -30,6 +30,27 @@ def signup_view(request):
     }
 
     return render(request, "forms/signup.html", context)
+
+
+@login_required
+def configure_view(request):
+    """
+    Displays the initial settings configuration page.
+    """
+    if request.method == "POST":
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.user = User.objects.get(pk=request.user.id)
+            obj.save()
+            return redirect('.')
+    else:
+        form = ProfileForm()
+    context = {
+        "form": form
+    }
+
+    return render(request, "forms/configure.html", context)
 
 
 def login_view(request):
