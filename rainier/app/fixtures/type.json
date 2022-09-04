@@ -1,0 +1,16 @@
+[
+    {
+      "model": "app.type",
+      "pk": 1,
+      "fields": {
+        "name": "Expense"
+      }
+    },
+    {
+        "model": "app.type",
+        "pk": 2,
+        "fields": {
+          "name": "Income"
+        }
+    }
+]

@@ -1,0 +1,119 @@
+[
+    {
+      "model": "app.category",
+      "pk": 1,
+      "fields": {
+        "name": "Housing",
+        "logo": "🏠",
+        "type": 1
+      }
+    },
+    {
+        "model": "app.category",
+        "pk": 2,
+        "fields": {
+          "name": "Utilities",
+          "logo": "💧",
+          "type": 1
+        }
+    },
+    {
+        "model": "app.category",
+        "pk": 3,
+        "fields": {
+          "name": "Groceries",
+          "logo": "🥦",
+          "type": 1
+        }
+    },
+    {
+        "model": "app.category",
+        "pk": 4,
+        "fields": {
+          "name": "Medical",
+          "logo": "💊",
+          "type": 1
+        }
+    },
+    {
+        "model": "app.category",
+        "pk": 5,
+        "fields": {
+          "name": "Transportation",
+          "logo": "🚌",
+          "type": 1
+        }
+    },
+    {
+        "model": "app.category",
+        "pk": 6,
+        "fields": {
+          "name": "Dining",
+          "logo": "🍽",
+          "type": 1
+        }
+    },
+    {
+        "model": "app.category",
+        "pk": 7,
+        "fields": {
+          "name": "Entertainment",
+          "logo": "🕹",
+          "type": 1
+        }
+    },
+    {
+        "model": "app.category",
+        "pk": 8,
+        "fields": {
+          "name": "Travel",
+          "logo": "🗺",
+          "type": 1
+        }
+    },
+    {
+        "model": "app.category",
+        "pk": 9,
+        "fields": {
+          "name": "Education",
+          "logo": "📖",
+          "type": 1
+        }
+    },
+    {
+        "model": "app.category",
+        "pk": 10,
+        "fields": {
+          "name": "Miscellaneous",
+          "logo": "🛍",
+          "type": 1
+        }
+    },
+    {
+        "model": "app.category",
+        "pk": 11,
+        "fields": {
+          "name": "Salary",
+          "logo": "💳",
+          "type": 2
+        }
+    },
+    {
+        "model": "app.category",
+        "pk": 12,
+        "fields": {
+          "name": "Savings",
+          "logo": "🏦",
+          "type": 2
+        }
+    },
+    {
+        "model": "app.category",
+        "pk": 13,
+        "fields": {
+          "name": "Additional",
+          "logo": "💰",
+          "type": 2
+        }
+    }
+]

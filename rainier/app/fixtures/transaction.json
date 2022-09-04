@@ -1,0 +1,980 @@
+[
+{
+  "model": "app.transaction",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "created": "2022-01-01T09:41:00.000Z",
+    "date": "2022-01-01",
+    "type": 1,
+    "name": "New Year's Eve decorations",
+    "amount": "99.99",
+    "category": 10,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "created": "2022-01-05T09:41:00.000Z",
+    "date": "2022-01-05",
+    "type": 1,
+    "name": "Gift for Michael",
+    "amount": "49.99",
+    "category": 10,
+    "note": "T-shirt & blouse"
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 3,
+  "fields": {
+    "user": 1,
+    "created": "2022-01-05T09:41:00.000Z",
+    "date": "2022-01-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 4,
+  "fields": {
+    "user": 1,
+    "created": "2022-01-05T09:41:00.000Z",
+    "date": "2022-01-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "350.00",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 5,
+  "fields": {
+    "user": 1,
+    "created": "2022-01-15T09:41:00.000Z",
+    "date": "2022-01-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 6,
+  "fields": {
+    "user": 1,
+    "created": "2022-01-25T09:41:00.000Z",
+    "date": "2022-01-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 7,
+  "fields": {
+    "user": 1,
+    "created": "2022-01-25T09:41:00.000Z",
+    "date": "2022-01-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 8,
+  "fields": {
+    "user": 1,
+    "created": "2022-01-25T09:41:00.000Z",
+    "date": "2022-01-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+
+
+
+
+
+{
+  "model": "app.transaction",
+  "pk": 9,
+  "fields": {
+    "user": 1,
+    "created": "2022-02-05T09:41:00.000Z",
+    "date": "2022-02-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 10,
+  "fields": {
+    "user": 1,
+    "created": "2022-02-05T09:41:00.000Z",
+    "date": "2022-02-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "350.00",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 11,
+  "fields": {
+    "user": 1,
+    "created": "2022-02-15T09:41:00.000Z",
+    "date": "2022-02-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 12,
+  "fields": {
+    "user": 1,
+    "created": "2022-01-15T09:41:00.000Z",
+    "date": "2022-01-15",
+    "type": 1,
+    "name": "Cinema",
+    "amount": "29.99",
+    "category": 7,
+    "note": "Also bought Joanna's ticket"
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 13,
+  "fields": {
+    "user": 1,
+    "created": "2022-02-25T09:41:00.000Z",
+    "date": "2022-02-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 14,
+  "fields": {
+    "user": 1,
+    "created": "2022-02-25T09:41:00.000Z",
+    "date": "2022-02-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 15,
+  "fields": {
+    "user": 1,
+    "created": "2022-02-25T09:41:00.000Z",
+    "date": "2022-02-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+
+
+
+
+
+{
+  "model": "app.transaction",
+  "pk": 16,
+  "fields": {
+    "user": 1,
+    "created": "2022-03-05T09:41:00.000Z",
+    "date": "2022-03-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 17,
+  "fields": {
+    "user": 1,
+    "created": "2022-03-05T09:41:00.000Z",
+    "date": "2022-03-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "325.00",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 18,
+  "fields": {
+    "user": 1,
+    "created": "2022-03-15T09:41:00.000Z",
+    "date": "2022-03-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 19,
+  "fields": {
+    "user": 1,
+    "created": "2022-03-25T09:41:00.000Z",
+    "date": "2022-03-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 20,
+  "fields": {
+    "user": 1,
+    "created": "2022-03-25T09:41:00.000Z",
+    "date": "2022-03-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 21,
+  "fields": {
+    "user": 1,
+    "created": "2022-03-25T09:41:00.000Z",
+    "date": "2022-03-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+
+
+
+
+
+{
+  "model": "app.transaction",
+  "pk": 22,
+  "fields": {
+    "user": 1,
+    "created": "2022-04-05T09:41:00.000Z",
+    "date": "2022-04-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 23,
+  "fields": {
+    "user": 1,
+    "created": "2022-04-05T09:41:00.000Z",
+    "date": "2022-04-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "289.00",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 24,
+  "fields": {
+    "user": 1,
+    "created": "2022-04-15T09:41:00.000Z",
+    "date": "2022-04-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 25,
+  "fields": {
+    "user": 1,
+    "created": "2022-04-25T09:41:00.000Z",
+    "date": "2022-04-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 26,
+  "fields": {
+    "user": 1,
+    "created": "2022-04-25T09:41:00.000Z",
+    "date": "2022-04-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 27,
+  "fields": {
+    "user": 1,
+    "created": "2022-04-25T09:41:00.000Z",
+    "date": "2022-04-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+
+
+
+
+
+{
+  "model": "app.transaction",
+  "pk": 28,
+  "fields": {
+    "user": 1,
+    "created": "2022-05-05T09:41:00.000Z",
+    "date": "2022-05-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 29,
+  "fields": {
+    "user": 1,
+    "created": "2022-05-05T09:41:00.000Z",
+    "date": "2022-05-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "315.87",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 30,
+  "fields": {
+    "user": 1,
+    "created": "2022-05-15T09:41:00.000Z",
+    "date": "2022-05-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 31,
+  "fields": {
+    "user": 1,
+    "created": "2022-05-25T09:41:00.000Z",
+    "date": "2022-05-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 32,
+  "fields": {
+    "user": 1,
+    "created": "2022-05-25T09:41:00.000Z",
+    "date": "2022-05-25",
+    "type": 1,
+    "name": "Repairs",
+    "amount": "3341.58",
+    "category": 1,
+    "note": "Rooftop, door & fence"
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 33,
+  "fields": {
+    "user": 1,
+    "created": "2022-05-25T09:41:00.000Z",
+    "date": "2022-05-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 34,
+  "fields": {
+    "user": 1,
+    "created": "2022-05-25T09:41:00.000Z",
+    "date": "2022-05-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+
+
+
+
+
+{
+  "model": "app.transaction",
+  "pk": 35,
+  "fields": {
+    "user": 1,
+    "created": "2022-06-05T09:41:00.000Z",
+    "date": "2022-06-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 36,
+  "fields": {
+    "user": 1,
+    "created": "2022-06-05T09:41:00.000Z",
+    "date": "2022-06-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "389.99",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 37,
+  "fields": {
+    "user": 1,
+    "created": "2022-06-15T09:41:00.000Z",
+    "date": "2022-06-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 38,
+  "fields": {
+    "user": 1,
+    "created": "2022-06-19T09:41:00.000Z",
+    "date": "2022-06-19",
+    "type": 1,
+    "name": "Holiday",
+    "amount": "378.45",
+    "category": 8,
+    "note": "Trip to Rome, Italy"
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 39,
+  "fields": {
+    "user": 1,
+    "created": "2022-06-19T09:41:00.000Z",
+    "date": "2022-06-19",
+    "type": 1,
+    "name": "Airplane tickets",
+    "amount": "85.99",
+    "category": 5,
+    "note": "Flight to Zurich, Switzerland"
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 40,
+  "fields": {
+    "user": 1,
+    "created": "2022-06-19T09:41:00.000Z",
+    "date": "2022-06-19",
+    "type": 1,
+    "name": "Train tickets",
+    "amount": "39.99",
+    "category": 5,
+    "note": "Train to Rome, Italy"
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 41,
+  "fields": {
+    "user": 1,
+    "created": "2022-06-21T09:41:00.000Z",
+    "date": "2022-06-21",
+    "type": 1,
+    "name": "Clothes",
+    "amount": "279.31",
+    "category": 10,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 42,
+  "fields": {
+    "user": 1,
+    "created": "2022-06-25T09:41:00.000Z",
+    "date": "2022-06-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 43,
+  "fields": {
+    "user": 1,
+    "created": "2022-06-25T09:41:00.000Z",
+    "date": "2022-06-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 44,
+  "fields": {
+    "user": 1,
+    "created": "2022-06-25T09:41:00.000Z",
+    "date": "2022-06-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+
+
+
+
+
+{
+  "model": "app.transaction",
+  "pk": 45,
+  "fields": {
+    "user": 1,
+    "created": "2022-07-05T09:41:00.000Z",
+    "date": "2022-07-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 46,
+  "fields": {
+    "user": 1,
+    "created": "2022-07-05T09:41:00.000Z",
+    "date": "2022-07-05",
+    "type": 2,
+    "name": "Dividends",
+    "amount": "489.00",
+    "category": 13,
+    "note": "Annual dividends from stock market investments"
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 47,
+  "fields": {
+    "user": 1,
+    "created": "2022-07-05T09:41:00.000Z",
+    "date": "2022-07-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "310.00",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 48,
+  "fields": {
+    "user": 1,
+    "created": "2022-07-15T09:41:00.000Z",
+    "date": "2022-07-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 49,
+  "fields": {
+    "user": 1,
+    "created": "2022-07-25T09:41:00.000Z",
+    "date": "2022-07-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 50,
+  "fields": {
+    "user": 1,
+    "created": "2022-07-25T09:41:00.000Z",
+    "date": "2022-07-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 51,
+  "fields": {
+    "user": 1,
+    "created": "2022-07-25T09:41:00.000Z",
+    "date": "2022-07-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+
+
+
+
+
+{
+  "model": "app.transaction",
+  "pk": 52,
+  "fields": {
+    "user": 1,
+    "created": "2022-08-05T09:41:00.000Z",
+    "date": "2022-08-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 53,
+  "fields": {
+    "user": 1,
+    "created": "2022-08-05T09:41:00.000Z",
+    "date": "2022-08-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "325.00",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 54,
+  "fields": {
+    "user": 1,
+    "created": "2022-08-15T09:41:00.000Z",
+    "date": "2022-08-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 55,
+  "fields": {
+    "user": 1,
+    "created": "2022-08-25T09:41:00.000Z",
+    "date": "2022-08-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 56,
+  "fields": {
+    "user": 1,
+    "created": "2022-08-25T09:41:00.000Z",
+    "date": "2022-08-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 57,
+  "fields": {
+    "user": 1,
+    "created": "2022-08-25T09:41:00.000Z",
+    "date": "2022-08-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 58,
+  "fields": {
+    "user": 1,
+    "created": "2022-08-25T09:41:00.000Z",
+    "date": "2022-08-20",
+    "type": 1,
+    "name": "Eating out",
+    "amount": "49.32",
+    "category": 6,
+    "note": "Dinner with Joanna"
+  }
+},
+
+
+
+
+
+{
+  "model": "app.transaction",
+  "pk": 59,
+  "fields": {
+    "user": 1,
+    "created": "2022-09-05T09:41:00.000Z",
+    "date": "2022-09-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 60,
+  "fields": {
+    "user": 1,
+    "created": "2022-09-05T09:41:00.000Z",
+    "date": "2022-09-09",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "345.99",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 61,
+  "fields": {
+    "user": 1,
+    "created": "2022-09-11T09:41:00.000Z",
+    "date": "2022-09-11",
+    "type": 1,
+    "name": "Office supplies",
+    "amount": "50.00",
+    "category": 9,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 62,
+  "fields": {
+    "user": 1,
+    "created": "2022-09-11T09:41:00.000Z",
+    "date": "2022-09-11",
+    "type": 1,
+    "name": "University tuition",
+    "amount": "2500.00",
+    "category": 9,
+    "note": "One more instalment to be paid"
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 63,
+  "fields": {
+    "user": 1,
+    "created": "2022-09-15T09:41:00.000Z",
+    "date": "2022-09-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 64,
+  "fields": {
+    "user": 1,
+    "created": "2022-09-25T09:41:00.000Z",
+    "date": "2022-09-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 65,
+  "fields": {
+    "user": 1,
+    "created": "2022-09-25T09:41:00.000Z",
+    "date": "2022-09-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 66,
+  "fields": {
+    "user": 1,
+    "created": "2022-09-25T09:41:00.000Z",
+    "date": "2022-09-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+{
+  "model": "app.transaction",
+  "pk": 67,
+  "fields": {
+    "user": 1,
+    "created": "2022-09-27T09:41:00.000Z",
+    "date": "2022-09-27",
+    "type": 1,
+    "name": "Repairs & renovations",
+    "amount": "2499.99",
+    "category": 1,
+    "note": "Kitchen & bathroom"
+  }
+}
+]

@@ -1,0 +1,29 @@
+[
+    {
+      "model": "app.currency",
+      "pk": 1,
+      "fields": {
+        "name": "Dollar",
+        "abbreviation": "USD",
+        "symbol": "$"
+      }
+    },
+    {
+        "model": "app.currency",
+        "pk": 2,
+        "fields": {
+          "name": "Euro",
+          "abbreviation": "EUR",
+          "symbol": "€"
+        }
+    },
+    {
+        "model": "app.currency",
+        "pk": 3,
+        "fields": {
+          "name": "British Pounds",
+          "abbreviation": "GBP",
+          "symbol": "£"
+        }
+    }
+]
