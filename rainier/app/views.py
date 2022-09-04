@@ -5,11 +5,32 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
-from .forms import LoginForm, UserForm, ProfileForm, TransactionForm
+from .forms import SignUpForm, LoginForm, UserForm, ProfileForm, TransactionForm
 from .models import Profile, Currency, Type, Category, Transaction
 
 
 # Create your views here.
+
+def signup_view(request):
+    if request.user.is_authenticated:
+        return redirect('.')
+    elif request.method == "POST":
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('/setup')
+    else:
+        form = SignUpForm()
+    context = {
+        "form": form
+    }
+
+    return render(request, "forms/signup.html", context)
+
 
 def login_view(request):
     if request.user.is_authenticated:

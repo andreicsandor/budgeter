@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}
+    Sign Up — Budget
+{% endblock %}
+{% block content %}
+
+<body id="page-landing">
+    
+    <!-- Main content of the page -->
+    <main role="main">
+
+        <!-- Modal -->
+        <div class="modal position-static d-block pt-3 pb-5" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" id="modal-content" name="modal-content">
+                    <div class="modal-header p-5 pb-4 border-bottom-0">
+                        <h2 class="fw-bold mb-0">Create a new account</h2>
+                    </div>
+                    <div class="modal-body p-5 pt-0">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-floating" id="input-username" name="input-username">
+                                {{ form.username }}
+                                <label for="input-username">Username</label>
+                            </div>
+                            <br>
+                            <div class="form-floating" id="input-name" name="input-name">
+                                {{ form.first_name }}
+                                <label for="input-first-name">First Name</label>
+                            </div>
+                            <br>
+                            <div class="form-floating" id="input-surname" name="input-surname">
+                                {{ form.last_name }}
+                                <label for="input-surname">Last Name</label>
+                            </div>
+                            <br>
+                            <div class="form-floating" id="input-mail" name="input-mail">
+                                {{ form.email }}
+                                <label for="input-mail">Email address</label>
+                            </div>
+                            <br>
+                            <div class="form-floating" id="input-password" name="input-password1">
+                                {{ form.password1 }}
+                                <label for="input-password">New password</label>
+                            </div>
+                            <br>
+                            <div class="form-floating" id="input-password" name="input-password2">
+                                {{ form.password2 }}
+                                <label for="input-password">Confirm password</label>
+                            </div>
+                            <br>
+                            <div class="wrapper-buttons">
+                                <input class="btn btn-dark btn-lg w-100" id="button-submit" name="button-submit" type="submit" value="Sign Up" style="margin: 3% 0% 2% 0%;"/>
+                            </div>
+                            <hr class="my-4">
+                            <h2 class="fs-5 fw-bold">Already have an account?</h2>
+                            <small class="text-muted">Pick up where you've left in tracking your budget.</small>
+                            <div class="wrapper-buttons">
+                                <a class="btn btn-secondary w-100" id="button-submit" name="button-submit" type="button" href="/login" style="margin: 5% 0% 0% 0%;">Log In</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+{% endblock %}
