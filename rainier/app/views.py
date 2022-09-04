@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
-from .forms import LoginForm, TransactionForm
+from .forms import LoginForm, UserForm, TransactionForm
 from .models import Profile, Currency, Type, Category, Transaction
 
 
@@ -36,6 +36,26 @@ def logout_view(request):
     logout(request)
 
     return redirect('/')
+
+
+@login_required
+def account_view(request):
+    """
+    Displays the account management page.
+    """
+    user = User.objects.get(pk=request.user.id)
+    form = UserForm(instance=user)
+    if request.method == "POST":
+        form = UserForm(request.POST, instance=user)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.save()
+            return redirect('/')
+    context = {
+        "form": form
+    }
+
+    return render(request, "forms/account.html", context)
 
 
 @login_required
