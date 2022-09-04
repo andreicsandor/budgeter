@@ -147,4 +147,23 @@
     });
 </script>
 
+<!-- Loads the date picker & calendar -->
+<script>
+    // Displays the date range picker
+    $('#input-date').daterangepicker({
+        "singleDatePicker": true,    
+        "alwaysShowCalendars": true,
+            "opens": "left",
+            "drops": "auto",
+            "applyButtonClasses": "btn-dark fw-semibold",
+            "cancelClass": "btn-light fw-semibold"
+        }, function(start, end, label) {
+            console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+    });
+    // Updates the default date automatically
+    const date = new Date();
+    currentDay.setDate(new Date().getDate());
+    $('#input-date').data('daterangepicker').setStartDate(currentDay);
+</script>
+
 {% endblock %}

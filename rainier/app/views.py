@@ -45,6 +45,7 @@ def home_view(request):
     """
     transactions = get_user_data(request)
     expenses, income = group_data(transactions)
+    currency_short, currency_symbol = get_user_currency(request)
     query = finder(request)
 
     # Returns the user's balance
@@ -84,6 +85,8 @@ def home_view(request):
 
     context = {
         "transactions": query,
+        "currency_short": currency_short,
+        "currency_symbol": currency_symbol,
         "types": types,
         "categories_expenses": categories_expenses,
         "categories_income": categories_income,
@@ -141,6 +144,20 @@ def get_user_data(request):
     data = Transaction.objects.filter(user=user).order_by('-date', '-amount', 'name')
 
     return data
+
+
+@login_required
+def get_user_currency(request):
+    user = User.objects.get(pk=request.user.id)
+    try:
+        currency = Profile.ProfileCurrency(Profile.objects.get(user=user))
+        short = Currency.CurrencyShort(currency)
+        symbol = Currency.CurrencySymbol(currency)
+    except Profile.DoesNotExist:
+        short = ""
+        symbol = ""
+
+    return short, symbol
 
 
 def group_data(data):
