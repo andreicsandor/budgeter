@@ -148,6 +148,23 @@ def edit_view(request, pk):
     return render(request, "forms/edit.html", context)
 
 
+@login_required
+def delete_view(request, pk):
+    """
+    Delete an existing transaction entry.
+    """
+    entry = Transaction.objects.get(id=pk)
+
+    if request.method == "POST":
+        entry.delete()
+        return redirect('/')
+    context = {
+        "id": pk
+    }
+
+    return render(request, "forms/delete.html", context)
+
+
 def categories_view(request):
     """
     Loads the corresponding categories for each type of transaction in the create entry window.
