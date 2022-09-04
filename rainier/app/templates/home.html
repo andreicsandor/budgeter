@@ -188,4 +188,158 @@
     </main>
 </body>
 
+
+<!-- Scripts -->
+
+
+<!-- Displays the charts -->
+<script>
+
+    // Renders the chart for the current month's expenses
+    const ctx1 = document.getElementById('chart-expenses-current');
+    const currentLabels = [{% for label in labels_current %}"{{ label|safe }}",{% endfor %}];
+    const currentValues = [{% for value in values_expenses_current %}"{{ value|safe }}",{% endfor %}];  
+    const currentChart = new Chart(ctx1, {
+        type: "doughnut",
+        data: {
+            labels: currentLabels,
+            datasets: [{
+                label: "My First Dataset",
+                data: currentValues,
+                backgroundColor: [                     
+                    "#8EBDC3",
+                    "#69A7AF",
+                    "#43919B",
+                    "#3C838C",
+                    "#2F666D",
+                    "#D9E9EB", 
+                    "#B4D3D7",
+                    "#22494E",
+                    "#183337",
+                    "#112527",
+                ],                
+                hoverOffset: 0
+            }],
+            responsive: true
+        },
+        maintainAspectRatio: false,
+        options: {
+            layout: {
+                padding: 5
+            },
+            elements: {
+                arc: {
+                    borderWidth: 0.5,
+                    borderColor: "#f5f5fa",
+                    hoverBorderWidth: 0.5,
+                    hoverBorderColor: "#f5f5fa",
+                    borderAlign: "left",
+                    spacing: 7
+                },
+            },
+            plugins: {
+                legend: {
+                    display: false,
+                    position: "top",
+                    align: "start",
+                    maxHeight: 75, 
+                    rtl: true,
+                    labels: {
+                        padding: 10
+                    }
+                }
+            }
+        }
+    });
+
+    // Renders the chart for the last 6 months expenses & income
+    const ctx2 = document.getElementById('chart-expenses-rewind');
+    const previousLabels = [{% for label in labels_previous %}"{{ label|safe }}",{% endfor %}];
+    const previousExpensesValues = [{% for value in values_expenses_previous %}("{{ value|safe }}").replace(",", ""),{% endfor %}];
+    const previousIncomeValues = [{% for value in values_income_previous %}("{{ value|safe }}").replace(",", ""),{% endfor %}];
+    const rewindChart = new Chart(ctx2, {
+        type: "bar",
+        data: {
+            labels: previousLabels,
+            datasets: [
+                    {
+                        label: "Expenses",
+                        data: previousExpensesValues,
+                        backgroundColor: '#43919B',
+                        borderRadius: 3,
+                        categoryPercentage: 0.5,
+                        barPercentage: 1,
+                    },
+                    {
+                        label: "Income",
+                        data: previousIncomeValues,
+                        backgroundColor: "#99C4C8",
+                        borderRadius: 3,
+                        categoryPercentage: 0.5,
+                        barPercentage: 1
+                    }
+            ]
+        },
+        options: {
+            responsive: true,
+            aspectRatio: 0.9,
+            indexAxis: "y",
+            plugins: {
+                legend: {
+                    display: false,
+                    position: "top",
+                    align: "end"
+                }
+            },
+            scales: {
+                x: {
+                    type: "logarithmic",
+                    grid: {
+                        display: false,
+                        drawBorder: false
+                    },
+                    ticks: {
+                        display: false,
+                    },
+                },
+                y: {
+                    grid: {
+                        display: false,
+                        drawBorder: false,
+                    },
+                    ticks: {
+                        display: true,
+                    }
+                }
+            }
+        }
+    });
+    
+    // Replaces the charts with messages if no entries are available
+    const currentExpenses = "{{ expenses_current|safe }}";
+    const currentIncome = "{{ income_current|safe }}";
+    if (currentExpenses == "0" && currentIncome == "0") {
+        const leftChart = document.getElementById('progress');
+        const leftMessage = document.createElement('message-left');
+        leftMessage.innerHTML = '<h6 class="card-subtitle mb-2 fw-semibold text-muted">No entries for the current month.</h6>';
+        leftChart.replaceWith(leftMessage);
+        const expensesTag = document.getElementById('tag-expenses');
+        const incomeTag = document.getElementById('tag-income');
+        expensesTag.textContent = "No spendings";
+        incomeTag.textContent = "No earnings";
+    }
+    if (currentExpenses == 0 || currentExpenses == "") {
+        const middleChart = document.getElementById('chart-expenses-current');
+        const middleMessage = document.createElement('message-middle');
+        middleMessage.innerHTML = '<br><br><br><br><br><h6 class="fw-semibold text-muted" style="text-align: center;">No purchases yet.</h6><br><br><br><br><br>';
+        middleChart.replaceWith(middleMessage);
+    }
+    if (previousExpensesValues == "0,0,0,0,0,0" && previousIncomeValues == "0,0,0,0,0,0") {
+        const rightChart = document.getElementById('chart-expenses-rewind');
+        const rightMessage = document.createElement('message-right');
+        rightMessage.innerHTML = '<br><br><br><br><br><h6 class="fw-semibold text-muted" style="text-align: center;">Nothing to see here.</h6><br><br><br><br><br>';
+        rightChart.replaceWith(rightMessage);
+    }
+</script>
+
 {% endblock %} 
