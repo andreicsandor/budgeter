@@ -1,6 +1,6 @@
+from app.models import User, Profile, Currency, Transaction, Category, Type
 from django import forms
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
-from app.models import User, Profile, Currency, Transaction, Category, Type
 
 
 class SignUpForm(UserCreationForm):

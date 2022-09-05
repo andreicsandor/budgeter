@@ -1,13 +1,12 @@
 import datetime
 
-from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
 
 from .forms import SignUpForm, LoginForm, UserForm, ProfileForm, TransactionForm
 from .models import Profile, Currency, Type, Category, Transaction
-
 
 # Create your views here.
 
