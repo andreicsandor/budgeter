@@ -25,5 +25,14 @@
           "abbreviation": "GBP",
           "symbol": "£"
         }
-    }
+    },
+    {
+      "model": "app.currency",
+      "pk": 4,
+      "fields": {
+        "name": "Romanian Leu",
+        "abbreviation": "RON",
+        "symbol": "RON"
+      }
+  }
 ]
