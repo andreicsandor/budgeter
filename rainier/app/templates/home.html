@@ -264,6 +264,38 @@
         form = document.getElementById('finder-category');
         form.submit();
     }
+
+    // Suggests basic keywords in the search bar
+    var $input = $('.form-control-suggestions');
+    $input.typeahead({
+        source: [
+            "Expense",
+            "Income",
+            "Dining",
+            "Education",
+            "Entertainment",
+            "Groceries",
+            "Housing",
+            "Medical",
+            "Miscellaneous",
+            "Transportation",
+            "Travel",
+            "Utilities",
+            "Additional",
+            "Salary",
+            "Savings"                
+        ],
+        autoSelect: true,
+    });
+    $input.change(function () {
+        var item_selected = $input.typeahead('getActive');
+        matches = [];
+        if (item_selected) {
+            if (item_selected.name == $input.val()) {
+                matches.push(item_selected.name);
+            }
+        }
+    });
 </script>
 
 <!-- Displays the charts -->

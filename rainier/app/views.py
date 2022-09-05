@@ -439,6 +439,7 @@ def finder(request):
     type_query = request.GET.get('input-type')
     category_search_query = request.GET.get('input-category-search')
     category_query = request.GET.get('input-category')
+    search_query = request.GET.get('input-search')
 
     # Checks the corresponding match for the type filter
     if type_query is not None:
@@ -452,4 +453,45 @@ def finder(request):
     if category_query is not None:
         qs = qs.filter(category__name__iexact=category_query)
 
+    # Checks the corresponding match for the search input 
+    if search_query is not None:
+        if is_valid_type_query(search_query):
+            qs = qs.filter(type__name__icontains=search_query)
+        elif is_valid_category_query(search_query):
+            qs = qs.filter(category__name__icontains=search_query)
+        elif is_valid_note_query(search_query):
+            qs = qs.filter(note__icontains=search_query) 
+        else:
+            qs = qs.filter(name__icontains=search_query)
+
     return qs
+
+
+def is_valid_type_query(param):
+    """
+    Validates the query parameters for entry types.
+    """
+    types = list(dict.fromkeys([Type.TypeName(item) for item in Type.objects.all()]))
+
+    return param.title() in types
+
+
+def is_valid_category_query(param):
+    """
+    Validates the query parameters for entry categories.
+    """
+    categories = list(dict.fromkeys([Category.CategoryName(item) for item in Category.objects.all()]))
+
+    return param.title() in categories
+
+
+def is_valid_note_query(param):
+    """
+    Validates the query parameters for entry notes.
+    """
+    notes = list(dict.fromkeys([Transaction.TransactionNote(item) for item in Transaction.objects.all()]))
+    text = []
+    for note in notes:
+        text.extend(note.lower().split())
+
+    return param.lower() in text
