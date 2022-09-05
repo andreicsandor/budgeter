@@ -1,8 +1,10 @@
 import datetime
+from tempfile import TemporaryFile
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 
 from .forms import SignUpForm, LoginForm, UserForm, ProfileForm, TransactionForm
@@ -24,6 +26,7 @@ def signup_view(request):
             return redirect('/configure')
     else:
         form = SignUpForm()
+
     context = {
         "form": form
     }
@@ -36,15 +39,21 @@ def configure_view(request):
     """
     Displays the initial settings configuration page.
     """
-    if request.method == "POST":
-        form = ProfileForm(request.POST)
-        if form.is_valid():
-            obj = form.save(commit=False)
-            obj.user = User.objects.get(pk=request.user.id)
-            obj.save()
+    # Prevents the user from visiting the initial configuration again after the setup.
+    try:
+        if Profile.objects.get(user=request.user.id):
             return redirect('.')
-    else:
-        form = ProfileForm()
+    except ObjectDoesNotExist:
+        if request.method == "POST":
+            form = ProfileForm(request.POST)
+            if form.is_valid():
+                obj = form.save(commit=False)
+                obj.user = User.objects.get(pk=request.user.id)
+                obj.save()
+                return redirect('.')
+        else:
+            form = ProfileForm()
+
     context = {
         "form": form
     }
@@ -66,6 +75,7 @@ def login_view(request):
                 return redirect('/')
     else:
         form = LoginForm()
+
     context = {
         "form": form
     }
@@ -84,6 +94,13 @@ def account_view(request):
     """
     Displays the account management page.
     """
+    # Prevents the user from skipping the initial configuration step
+    try:
+        if Profile.objects.get(user=request.user.id):
+            pass
+    except ObjectDoesNotExist:
+        return redirect('/configure')
+
     user = User.objects.get(pk=request.user.id)
     form = UserForm(instance=user)
     if request.method == "POST":
@@ -92,6 +109,7 @@ def account_view(request):
             obj = form.save(commit=False)
             obj.save()
             return redirect('/')
+
     context = {
         "form": form
     }
@@ -104,6 +122,13 @@ def preferences_view(request):
     """
     Displays the preferences page.
     """
+    # Prevents the user from skipping the initial configuration step
+    try:
+        if Profile.objects.get(user=request.user.id):
+            pass
+    except ObjectDoesNotExist:
+        return redirect('/configure')
+
     user = User.objects.get(pk=request.user.id)
     profile = Profile.objects.get(user=user)
     form = ProfileForm(instance=profile)
@@ -113,6 +138,7 @@ def preferences_view(request):
             obj = form.save(commit=False)
             obj.save()
             return redirect('/account')
+
     context = {
         "form": form
     }
@@ -125,6 +151,13 @@ def home_view(request):
     """
     Displays all entries for the current user.
     """
+    # Prevents the user from skipping the initial configuration step
+    try:
+        if Profile.objects.get(user=request.user.id):
+            pass
+    except ObjectDoesNotExist:
+        return redirect('/configure')
+
     transactions = get_user_data(request)
     expenses, income = group_data(transactions)
     currency_short, currency_symbol = get_user_currency(request)
@@ -261,6 +294,13 @@ def create_view(request):
     """
     Creates a new transaction entry.
     """
+    # Prevents the user from skipping the initial configuration step
+    try:
+        if Profile.objects.get(user=request.user.id):
+            pass
+    except ObjectDoesNotExist:
+        return redirect('/configure')
+
     currency_short, currency_symbol = get_user_currency(request)
 
     if request.method == "POST":
@@ -272,6 +312,7 @@ def create_view(request):
             return redirect('/')
     else:
         form = TransactionForm()
+
     context = {
         "form": form,
         "currency_short": currency_short,
@@ -286,6 +327,13 @@ def edit_view(request, pk):
     """
     Edit an existing transaction entry.
     """
+    # Prevents the user from skipping the initial configuration step
+    try:
+        if Profile.objects.get(user=request.user.id):
+            pass
+    except ObjectDoesNotExist:
+        return redirect('/configure')
+
     currency_short, currency_symbol = get_user_currency(request)
 
     entry = Transaction.objects.get(id=pk)
@@ -297,6 +345,7 @@ def edit_view(request, pk):
             obj = form.save(commit=False)
             obj.save()
             return redirect('/')
+
     context = {
         "form": form,
         "id": pk,
@@ -312,11 +361,19 @@ def delete_view(request, pk):
     """
     Delete an existing transaction entry.
     """
+    # Prevents the user from skipping the initial configuration step
+    try:
+        if Profile.objects.get(user=request.user.id):
+            pass
+    except ObjectDoesNotExist:
+        return redirect('/configure')
+        
     entry = Transaction.objects.get(id=pk)
 
     if request.method == "POST":
         entry.delete()
         return redirect('/')
+
     context = {
         "id": pk
     }
