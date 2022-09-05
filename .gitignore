@@ -128,3 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 rainier/app/migrations/
+.DS_Store
