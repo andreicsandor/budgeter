@@ -24,6 +24,18 @@
                                     <path d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z"/>
                                 </svg>
                             </a>
+
+                            <!-- Filters by types name -->
+                            <form id="finder-type" name="finder-type" method="GET" action="." role="filter">
+                                <input id="input-type" name="input-type" type="hidden" value=""/>
+                            </form>
+                            <ul class="dropdown-menu text-small shadow" id="list-types" name="list-types">
+                                <!-- Loads all types -->
+                                <li><a class="dropdown-item" id="button-transactions" name="button-transactions" href=".">Transactions</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item option-type" id="option-type" name="Expense" href="#">Expenses</a></li>
+                                <li><a class="dropdown-item option-type" id="option-type" name="Income" href="#">Income</a></li>
+                            </ul>
                         </div>
 
                         <!-- Entry categories dropdown -->
@@ -34,6 +46,30 @@
                                     <path d="M1.293 7.793A1 1 0 0 1 1 7.086V2a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l.043-.043-7.457-7.457z"/>
                                 </svg>
                             </a>     
+                            <ul class="dropdown-menu pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px text-small shadow">
+                                <!-- Searches for category name -->
+                                <form class="p-2 mb-2 bg-light border-bottom" id="finder-category-search" name="finder-category-search" method="GET" action="." role="search">
+                                    <input class="form-control" id="input-category-search" name="input-category-search" type="search" placeholder="Search category" autocomplete="false">
+                                </form>
+                                <!-- Filters by category name -->
+                                <form id="finder-category" name="finder-category" method="GET" action="." role="filter">
+                                    <input id="input-category" name="input-category" type="hidden" value=""/>
+                                </form>
+                                <ul class="list-unstyled mb-0" id="list-categories" name="list-categories">
+                                    <!-- Loads all categories -->
+                                    {% for category in categories_expenses %}
+                                        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 option-category" id="option-category" name="{{ category.name }}" href="#">
+                                            {{ category.logo }}&nbsp;&nbsp;&nbsp;{{ category.name }}
+                                        </a></li>
+                                    {% endfor %}
+                                    <li><hr class="dropdown-divider"></li>
+                                    {% for category in categories_income %}
+                                        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 option-category" id="option-category" name="{{ category.name }}" href="#">
+                                            {{ category.logo }}&nbsp;&nbsp;&nbsp;{{ category.name }}
+                                        </a></li>
+                                    {% endfor %}
+                                </ul>
+                            </ul>
                         </div>
                         
                         <!-- Advanced filter menu -->
@@ -191,6 +227,44 @@
 
 <!-- Scripts -->
 
+
+<!-- Filters & searches transactions -->
+<script>
+
+    // Filters based on types query
+    document.querySelectorAll('.option-type').forEach(item => {
+        item.addEventListener('click', filterType)})
+    function filterType(event) {
+        const type_selected = event.target.name;
+        document.getElementById('input-type').value = type_selected;
+        // Remembers the types query was used
+        sessionStorage.clear();
+        sessionStorage.setItem('type_selected', type_selected);
+        if (type_selected == "Expense") {
+            sessionStorage.setItem('title_type', "Spendings");
+        } 
+        if (type_selected == "Income") {
+            sessionStorage.setItem('title_type', "Earnings");
+        }
+        // Submits the form
+        form = document.getElementById('finder-type');
+        form.submit();
+    }
+
+    // Filters based on categories query
+    document.querySelectorAll('.option-category').forEach(item => {
+        item.addEventListener('click', filterCategory)})
+    function filterCategory(event) {
+        const category_selected = event.target.name;
+        document.getElementById('input-category').value = category_selected;
+        // Remembers the categories query was used
+        sessionStorage.clear();
+        sessionStorage.setItem('category_selected', category_selected);
+        // Submits the form
+        form = document.getElementById('finder-category');
+        form.submit();
+    }
+</script>
 
 <!-- Displays the charts -->
 <script>

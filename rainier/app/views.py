@@ -436,4 +436,20 @@ def finder(request):
     """
     qs = get_user_data(request)
 
+    type_query = request.GET.get('input-type')
+    category_search_query = request.GET.get('input-category-search')
+    category_query = request.GET.get('input-category')
+
+    # Checks the corresponding match for the type filter
+    if type_query is not None:
+        qs = qs.filter(type__name__iexact=type_query)
+
+    # Checks the corresponding match for the category search input 
+    if category_search_query is not None:
+        qs = qs.filter(category__name__icontains=category_search_query)
+
+    # Checks the corresponding match for the category filter
+    if category_query is not None:
+        qs = qs.filter(category__name__iexact=category_query)
+
     return qs
