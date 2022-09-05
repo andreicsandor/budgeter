@@ -83,7 +83,7 @@
                     </ul>
 
                     <!-- Search bar -->
-                    <form class="nav col-6 col-lg-4 me-3" id="search-bar" name="search-bar" method="GET" action="." role="search" onsubmit="">
+                    <form class="nav col-6 col-lg-4 me-3" id="search-bar" name="search-bar" method="GET" action="." role="search" onsubmit="rememberSearchQuery();">
                         <input class="form-control form-control-suggestions" id="input-search" name="input-search" type="search" data-provide="typeahead" placeholder="Search" aria-label="Search">
                     </form>
                     
@@ -106,7 +106,7 @@
 
         <!-- Advanced filter offcanvas -->
         <div class="offcanvas offcanvas-start" id="window-finder" name="window-finder" tabindex="-1">
-            <form id="finder" name="finder" method="GET" action="." role="filter" onsubmit="">
+            <form id="finder" name="finder" method="GET" action="." role="filter" onsubmit="rememberDateQuery();">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasLabel">Advanced filter</h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -208,6 +208,20 @@
             </div>
         </div>
 
+        <!-- Search & filter tags card -->
+        <div class="modal position-static d-block" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg mt-2 mb-0">
+                <div class="modal-content" id="modal-tags" name="modal-tags">
+                    <div class="d-flex flex-row justify-content-end">
+                        <button class="btn btn-dark btn-sm position-relative" id="button-clear" name="button-clear" type="button" style="display: none;" onclick="location.href=''">
+                            Tag
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">×</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Main card -->
         <div class="modal position-static d-block pb-5" tabindex="-1" role="dialog ">
             <div class="modal-dialog modal-lg mt-4">
@@ -395,6 +409,12 @@
     $('#input-date').data('daterangepicker').setStartDate(firstDay);
     $('#input-date').data('daterangepicker').setEndDate(lastDay);
 
+    // Remembers the advanced date selection query was used
+    function rememberDateQuery() {
+        sessionStorage.clear();
+        sessionStorage.setItem('date_selection', "1");
+    }
+
     // Suggests basic keywords in the search bar
     var $input = $('.form-control-suggestions');
     $input.typeahead({
@@ -424,6 +444,111 @@
             if (item_selected.name == $input.val()) {
                 matches.push(item_selected.name);
             }
+        }
+    });
+
+    // Remembers the quick search query was used
+    function rememberSearchQuery() {
+        sessionStorage.clear();
+        sessionStorage.setItem('quick_search', "1");
+    }
+</script>
+
+<!-- Enables the clear button for search & filters and displays the custom title & subtitles -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {   
+        // Checks for the custom titles & subtitles
+        if (sessionStorage.getItem('title_type') === "Spendings") { 
+            typesTitle = document.getElementById('title-type');
+            typesSubtitle = document.getElementById('subtitle-type');
+            typesTitle.childNodes[0].textContent = "Spendings";
+            typesSubtitle.childNodes[0].textContent = "This is how you've spent your money.";
+        }
+        if (sessionStorage.getItem('title_type') === "Earnings") { 
+            typesTitle = document.getElementById('title-type');
+            typesSubtitle = document.getElementById('subtitle-type');
+            typesTitle.childNodes[0].textContent = "Earnings";
+            typesSubtitle.childNodes[0].textContent = "All your earnings, in one place.";
+        }
+        // Checks for the advanced type query
+        if (sessionStorage.getItem('type_selected') !== null) { 
+            clearButton = document.getElementById('button-clear');
+            clearButton.childNodes[0].textContent = "Filter";
+            clearButton.style.display = "block";  
+        }
+        // Checks for the type query
+        if (sessionStorage.getItem('type_selected') !== null) {
+            clearButton = document.getElementById('button-clear');
+            clearButton.childNodes[0].textContent = "Filter";
+            clearButton.style.display = "block";
+        }
+        // Checks for the category query
+        if (sessionStorage.getItem('category_selected') !== null) {
+            clearButton = document.getElementById('button-clear');
+            clearButton.childNodes[0].textContent = "Filter";
+            clearButton.style.display = "block";
+        }
+        // Checks for the advanced date selection query
+        if (sessionStorage.getItem('date_selection') !== null) {
+            clearButton = document.getElementById('button-clear');
+            clearButton.childNodes[0].textContent = "Filter";
+            clearButton.style.display = "block";
+        }
+        // Checks for the quick search query
+        if (sessionStorage.getItem('quick_search') !== null) {
+            clearButton = document.getElementById('button-clear');
+            clearButton.childNodes[0].textContent = "Search";
+            clearButton.style.display = "block";
+        }
+    });
+
+    // Forgets the tag from the session storage when the 'transactions' button is clicked
+    document.getElementById('button-transactions').addEventListener('click', function() {
+        sessionStorage.clear();
+        location.replace(".");
+    });
+
+    // Forgets the tag from the session storage when the clear button is clicked
+    document.getElementById('button-clear').addEventListener('click', function() {
+        sessionStorage.clear();
+        location.replace(".");
+    });
+
+    // Forgets the tags from the session storage when the page is reloaded or the user navigates between pages
+    document.addEventListener('DOMContentLoaded', function() {
+        url = window.location.href;
+        if (url.includes("?") === false) {
+            sessionStorage.clear();
+        }
+        if (url.includes("#") === true) {
+            sessionStorage.clear();
+        }
+    });
+    document.addEventListener('hashchange', function() {
+        url = window.location.href;
+        if (url.includes("?") === false) {
+            sessionStorage.clear();
+        }
+        if (url.includes("#") === true) {
+            sessionStorage.clear();
+        }
+    });
+    document.addEventListener('locationchange', function() {
+        url = window.location.href;
+        if (url.includes("?") === false) {
+            sessionStorage.clear();
+        }
+        if (url.includes("#") === true) {
+            sessionStorage.clear();
+        }
+    });
+    document.addEventListener('popstate', function() {
+        url = window.location.href;
+        if (url.includes("?") === false) {
+            sessionStorage.clear();
+        }
+        if (url.includes("#") === true) {
+            sessionStorage.clear();
         }
     });
 </script>
