@@ -439,6 +439,9 @@ def finder(request):
     type_query = request.GET.get('input-type')
     category_search_query = request.GET.get('input-category-search')
     category_query = request.GET.get('input-category')
+    type_advanced_query = request.GET.get('input-type-advanced')
+    category_advanced_query = request.GET.get('input-category-advanced')
+    date_query = request.GET.get('input-date')
     search_query = request.GET.get('input-search')
 
     # Checks the corresponding match for the type filter
@@ -452,6 +455,45 @@ def finder(request):
     # Checks the corresponding match for the category filter
     if category_query is not None:
         qs = qs.filter(category__name__iexact=category_query)
+
+    # Formats the date into the proper format
+    def format_date(date):
+        # Splits the input into two dates
+        elements = date.split(" - ")
+        # Formats the start date
+        elements[0] = elements[0].split("/")
+        start_date = f"{elements[0][2]}-{elements[0][0]}-{elements[0][1]}"
+        # Formats the end date
+        elements[1] = elements[1].split("/")
+        end_date = f"{elements[1][2]}-{elements[1][0]}-{elements[1][1]}"
+        return start_date, end_date
+
+    # Checks the corresponding match for the advanced filter
+    if type_advanced_query is None or type_advanced_query == "All":
+        if category_advanced_query is None or category_advanced_query == "All":
+            if date_query is not None:
+                start_date, end_date = format_date(date_query)
+                qs = qs.filter(date__range=[start_date, end_date])
+        else:
+            if date_query is not None:
+                qs_category = qs.filter(category__name__iexact=category_advanced_query)
+                start_date, end_date = format_date(date_query)
+                qs_date = qs.filter(date__range=[start_date, end_date])
+                qs = qs_category & qs_date
+    else:
+        if category_advanced_query is None or category_advanced_query == "All":
+            if date_query is not None:
+                qs_type = qs.filter(type__name__iexact=type_advanced_query)
+                start_date, end_date = format_date(date_query)
+                qs_date = qs.filter(date__range=[start_date, end_date])
+                qs = qs_type & qs_date
+        else:
+            if date_query is not None:
+                qs_type = qs.filter(type__name__iexact=type_advanced_query)
+                qs_category = qs.filter(category__name__iexact=category_advanced_query)
+                start_date, end_date = format_date(date_query)
+                qs_date = qs.filter(date__range=[start_date, end_date])
+                qs = qs_type & qs_category & qs_date
 
     # Checks the corresponding match for the search input 
     if search_query is not None:

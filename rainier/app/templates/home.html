@@ -104,6 +104,53 @@
             </div>
         </header>
 
+        <!-- Advanced filter offcanvas -->
+        <div class="offcanvas offcanvas-start" id="window-finder" name="window-finder" tabindex="-1">
+            <form id="finder" name="finder" method="GET" action="." role="filter" onsubmit="">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasLabel">Advanced filter</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+
+                    <!-- Filters by type -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="selection-type-advanced">Type</label>
+                        <input id="input-type-advanced" name="input-type-advanced" type="hidden" value="All"/>
+                        <select class="form-select" id="selection-type-advanced" form="finder">
+                            <option id="option-type-advanced" name="option-type-advanced" value="All">Expenses & Income</option>
+                            {% for type in types %}
+                                <option id="option-type-advanced" name="option-type-advanced" value="{{ type.name }}">{{ type.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Filters by category -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="selection-category-advanced">Category</label>
+                        <input id="input-category-advanced" name="input-category-advanced" type="hidden" value="All"/>
+                        <select class="form-select" id="selection-category-advanced" form="finder">
+                            <option class="option-custom-all" id="option-category-advanced" name="option-category-advanced" value="All">🏷&nbsp;&nbsp;All</option>
+                            {% for category in categories_expenses %}
+                                <option class="option-custom-expense" id="option-category-advanced" name="option-category-advanced" value="{{ category.name }}" disabled>{{ category.logo }}&nbsp;&nbsp;{{ category.name }}</option>
+                            {% endfor %}
+                            {% for category in categories_income %}
+                                <option class="option-custom-income" id="option-category-advanced" name="option-category-advanced" value="{{ category.name }}" disabled>{{ category.logo }}&nbsp;&nbsp;{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Filters by date -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text">Date</label>
+                        <input class="form-control" id="input-date" name="input-date" placeholder="MM/DD/YYY" type="text"/>
+                    </div>
+                    <br>
+                    <button class="btn btn-dark d-grid gap-2 col-7 mx-auto fw-semibold" id="button-submit" name="button-submit" type="submit">Filter</button>
+                </div>
+            </form>
+        </div>
+
         <!-- Header cards -->
         <div class="container-fluid pt-2 pb-2" id="card" style="padding: 0% 15% 0% 15%;">
             <div class="row">
@@ -264,6 +311,89 @@
         form = document.getElementById('finder-category');
         form.submit();
     }
+
+    // Filters based on advanced type query
+    document.getElementById('selection-type-advanced').addEventListener('change', function() {
+        const type_selected = event.target.value;
+        document.getElementById('input-type-advanced').value = type_selected;
+        // Remembers the advanced type query was used
+        sessionStorage.clear();
+        sessionStorage.setItem('type_selected', type_selected);
+    });
+
+    // Filters based on advanced categories query
+    document.getElementById('selection-category-advanced').addEventListener('change', function() {
+        const category_selected = event.target.value;
+        document.getElementById('input-category-advanced').value = category_selected;
+        // Remembers the advanced categories query was used
+        sessionStorage.clear();
+        sessionStorage.setItem('category_selected', category_selected);
+    });
+
+    // Links the entry types to the category options in the advanced filter
+    document.getElementById('selection-type-advanced').addEventListener('change', function() {
+        if (event.target.value == "Expense") {
+            document.getElementById('selection-category-advanced').value = "All";
+            document.querySelectorAll('.option-custom-expense').forEach(option => {
+                option.disabled = false;
+            })
+            document.querySelectorAll('.option-custom-income').forEach(option => {
+                option.disabled = true;
+            })
+        }
+        else if (event.target.value == "Income") {
+            document.getElementById('selection-category-advanced').value = "All";
+            document.querySelectorAll('.option-custom-expense').forEach(option => {
+                option.disabled = true;
+            })
+            document.querySelectorAll('.option-custom-income').forEach(option => {
+                option.disabled = false;
+            })
+        }
+        else if (event.target.value == "All") {
+            document.getElementById('selection-category-advanced').value = "All";
+            document.querySelectorAll('.option-custom-expense').forEach(option => {
+                option.disabled = true;
+            })
+            document.querySelectorAll('.option-custom-income').forEach(option => {
+                option.disabled = true;
+            })
+        }
+    });
+
+    // Displays the date range picker
+    $('#input-date').daterangepicker({
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+            "alwaysShowCalendars": true,
+            "startDate": "01/01/2022",
+            "endDate": "12/31/2022",
+            "opens": "right",
+            "applyButtonClasses": "btn-dark fw-semibold",
+            "cancelClass": "btn-light fw-semibold"
+        }, function(start, end, label) {
+            console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+    });
+    function getFirstDayOfMonth(year, month) {
+        return new Date(year, month, 1);
+    }
+
+    // Updates the default date range automatically
+    const date = new Date();
+    const firstDay = getFirstDayOfMonth(
+        date.getFullYear(),
+        date.getMonth(),
+    );
+    const lastDay = new Date();
+    lastDay.setDate(new Date().getDate());
+    $('#input-date').data('daterangepicker').setStartDate(firstDay);
+    $('#input-date').data('daterangepicker').setEndDate(lastDay);
 
     // Suggests basic keywords in the search bar
     var $input = $('.form-control-suggestions');
