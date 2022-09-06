@@ -26,6 +26,7 @@ class Viewer(View):
     def dashboard(request):
         """Displays the corresponding entries & statistics for the current user."""
 
+        # Prevents the user from skipping the initial configuration step
         Utilities.validator(request)
 
         # Common data
@@ -207,6 +208,7 @@ class Viewer(View):
     def creator(request):
         """Creates a new transaction entry."""
 
+        # Prevents the user from skipping the initial configuration step
         Utilities.validator(request)
 
         # User-specific data
@@ -235,6 +237,7 @@ class Viewer(View):
     def editor(request, pk):
         """Edit an existing transaction entry."""
 
+        # Prevents the user from skipping the initial configuration step
         Utilities.validator(request)
 
         # User-specific data
@@ -265,6 +268,7 @@ class Viewer(View):
     def eraser(request, pk):
         """Delete an existing transaction entry."""
         
+        # Prevents the user from skipping the initial configuration step
         Utilities.validator(request)
 
         entry = Transaction.objects.get(id=pk)
