@@ -1,6 +1,6 @@
 [
     {
-      "model": "app.category",
+      "model": "budgeter.category",
       "pk": 1,
       "fields": {
         "name": "Housing",
@@ -9,7 +9,7 @@
       }
     },
     {
-        "model": "app.category",
+        "model": "budgeter.category",
         "pk": 2,
         "fields": {
           "name": "Utilities",
@@ -18,7 +18,7 @@
         }
     },
     {
-        "model": "app.category",
+        "model": "budgeter.category",
         "pk": 3,
         "fields": {
           "name": "Groceries",
@@ -27,7 +27,7 @@
         }
     },
     {
-        "model": "app.category",
+        "model": "budgeter.category",
         "pk": 4,
         "fields": {
           "name": "Medical",
@@ -36,7 +36,7 @@
         }
     },
     {
-        "model": "app.category",
+        "model": "budgeter.category",
         "pk": 5,
         "fields": {
           "name": "Transportation",
@@ -45,7 +45,7 @@
         }
     },
     {
-        "model": "app.category",
+        "model": "budgeter.category",
         "pk": 6,
         "fields": {
           "name": "Dining",
@@ -54,7 +54,7 @@
         }
     },
     {
-        "model": "app.category",
+        "model": "budgeter.category",
         "pk": 7,
         "fields": {
           "name": "Entertainment",
@@ -63,7 +63,7 @@
         }
     },
     {
-        "model": "app.category",
+        "model": "budgeter.category",
         "pk": 8,
         "fields": {
           "name": "Travel",
@@ -72,7 +72,7 @@
         }
     },
     {
-        "model": "app.category",
+        "model": "budgeter.category",
         "pk": 9,
         "fields": {
           "name": "Education",
@@ -81,7 +81,7 @@
         }
     },
     {
-        "model": "app.category",
+        "model": "budgeter.category",
         "pk": 10,
         "fields": {
           "name": "Miscellaneous",
@@ -90,7 +90,7 @@
         }
     },
     {
-        "model": "app.category",
+        "model": "budgeter.category",
         "pk": 11,
         "fields": {
           "name": "Salary",
@@ -99,7 +99,7 @@
         }
     },
     {
-        "model": "app.category",
+        "model": "budgeter.category",
         "pk": 12,
         "fields": {
           "name": "Savings",
@@ -108,7 +108,7 @@
         }
     },
     {
-        "model": "app.category",
+        "model": "budgeter.category",
         "pk": 13,
         "fields": {
           "name": "Additional",

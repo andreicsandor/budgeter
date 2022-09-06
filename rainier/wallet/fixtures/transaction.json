@@ -1,6 +1,6 @@
 [
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 1,
   "fields": {
     "user": 1,
@@ -14,7 +14,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 2,
   "fields": {
     "user": 1,
@@ -28,7 +28,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 3,
   "fields": {
     "user": 1,
@@ -42,7 +42,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 4,
   "fields": {
     "user": 1,
@@ -56,7 +56,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 5,
   "fields": {
     "user": 1,
@@ -70,7 +70,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 6,
   "fields": {
     "user": 1,
@@ -84,7 +84,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 7,
   "fields": {
     "user": 1,
@@ -98,7 +98,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 8,
   "fields": {
     "user": 1,
@@ -117,7 +117,7 @@
 
 
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 9,
   "fields": {
     "user": 1,
@@ -131,7 +131,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 10,
   "fields": {
     "user": 1,
@@ -145,7 +145,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 11,
   "fields": {
     "user": 1,
@@ -159,7 +159,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 12,
   "fields": {
     "user": 1,
@@ -173,7 +173,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 13,
   "fields": {
     "user": 1,
@@ -187,7 +187,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 14,
   "fields": {
     "user": 1,
@@ -201,7 +201,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 15,
   "fields": {
     "user": 1,
@@ -220,7 +220,7 @@
 
 
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 16,
   "fields": {
     "user": 1,
@@ -234,7 +234,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 17,
   "fields": {
     "user": 1,
@@ -248,7 +248,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 18,
   "fields": {
     "user": 1,
@@ -262,7 +262,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 19,
   "fields": {
     "user": 1,
@@ -276,7 +276,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 20,
   "fields": {
     "user": 1,
@@ -290,7 +290,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 21,
   "fields": {
     "user": 1,
@@ -309,7 +309,7 @@
 
 
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 22,
   "fields": {
     "user": 1,
@@ -323,7 +323,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 23,
   "fields": {
     "user": 1,
@@ -337,7 +337,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 24,
   "fields": {
     "user": 1,
@@ -351,7 +351,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 25,
   "fields": {
     "user": 1,
@@ -365,7 +365,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 26,
   "fields": {
     "user": 1,
@@ -379,7 +379,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 27,
   "fields": {
     "user": 1,
@@ -398,7 +398,7 @@
 
 
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 28,
   "fields": {
     "user": 1,
@@ -412,7 +412,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 29,
   "fields": {
     "user": 1,
@@ -426,7 +426,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 30,
   "fields": {
     "user": 1,
@@ -440,7 +440,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 31,
   "fields": {
     "user": 1,
@@ -454,7 +454,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 32,
   "fields": {
     "user": 1,
@@ -468,7 +468,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 33,
   "fields": {
     "user": 1,
@@ -482,7 +482,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 34,
   "fields": {
     "user": 1,
@@ -501,7 +501,7 @@
 
 
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 35,
   "fields": {
     "user": 1,
@@ -515,7 +515,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 36,
   "fields": {
     "user": 1,
@@ -529,7 +529,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 37,
   "fields": {
     "user": 1,
@@ -543,7 +543,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 38,
   "fields": {
     "user": 1,
@@ -557,7 +557,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 39,
   "fields": {
     "user": 1,
@@ -571,7 +571,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 40,
   "fields": {
     "user": 1,
@@ -585,7 +585,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 41,
   "fields": {
     "user": 1,
@@ -599,7 +599,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 42,
   "fields": {
     "user": 1,
@@ -613,7 +613,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 43,
   "fields": {
     "user": 1,
@@ -627,7 +627,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 44,
   "fields": {
     "user": 1,
@@ -646,7 +646,7 @@
 
 
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 45,
   "fields": {
     "user": 1,
@@ -660,7 +660,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 46,
   "fields": {
     "user": 1,
@@ -674,7 +674,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 47,
   "fields": {
     "user": 1,
@@ -688,7 +688,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 48,
   "fields": {
     "user": 1,
@@ -702,7 +702,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 49,
   "fields": {
     "user": 1,
@@ -716,7 +716,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 50,
   "fields": {
     "user": 1,
@@ -730,7 +730,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 51,
   "fields": {
     "user": 1,
@@ -749,7 +749,7 @@
 
 
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 52,
   "fields": {
     "user": 1,
@@ -763,7 +763,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 53,
   "fields": {
     "user": 1,
@@ -777,7 +777,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 54,
   "fields": {
     "user": 1,
@@ -791,7 +791,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 55,
   "fields": {
     "user": 1,
@@ -805,7 +805,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 56,
   "fields": {
     "user": 1,
@@ -819,7 +819,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 57,
   "fields": {
     "user": 1,
@@ -833,7 +833,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 58,
   "fields": {
     "user": 1,
@@ -852,7 +852,7 @@
 
 
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 59,
   "fields": {
     "user": 1,
@@ -866,7 +866,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 60,
   "fields": {
     "user": 1,
@@ -880,7 +880,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 61,
   "fields": {
     "user": 1,
@@ -894,7 +894,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 62,
   "fields": {
     "user": 1,
@@ -908,7 +908,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 63,
   "fields": {
     "user": 1,
@@ -922,7 +922,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 64,
   "fields": {
     "user": 1,
@@ -936,7 +936,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 65,
   "fields": {
     "user": 1,
@@ -950,7 +950,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 66,
   "fields": {
     "user": 1,
@@ -964,7 +964,7 @@
   }
 },
 {
-  "model": "app.transaction",
+  "model": "wallet.transaction",
   "pk": 67,
   "fields": {
     "user": 1,

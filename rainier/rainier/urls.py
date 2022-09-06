@@ -13,22 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from app import views
 from django.contrib import admin
 from django.urls import path
+
+from authenticator import views as authentication_views
+from wallet import views as transactions_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('signup', views.signup_view, name='signup'),
-    path('configure', views.configure_view, name='configure'),
-    path('login', views.login_view, name='login'),
-    path('logout', views.logout_view, name='logout'),
-    path('account', views.account_view, name='account'),
-    path('preferences', views.preferences_view, name='preferences'),
-    path('', views.home_view, name='home'),
-    path('create', views.create_view, name='create'),
-    path('edit/<str:pk>', views.edit_view, name='edit'),
-    path('delete/<str:pk>', views.delete_view, name='delete'),
-    path('ajax/categories/', views.categories_view, name='ajax_categories'),
+    path('signup', authentication_views.signup_view, name='signup'),
+    path('configure', authentication_views.configure_view, name='configure'),
+    path('login', authentication_views.login_view, name='login'),
+    path('logout', authentication_views.logout_view, name='logout'),
+    path('account', authentication_views.account_view, name='account'),
+    path('preferences', authentication_views.preferences_view, name='preferences'),
+    path('', transactions_views.home_view, name='home'),
+    path('create', transactions_views.create_view, name='create'),
+    path('edit/<str:pk>', transactions_views.edit_view, name='edit'),
+    path('delete/<str:pk>', transactions_views.delete_view, name='delete'),
+    path('ajax/categories/', transactions_views.categories_view, name='ajax_categories'),
 ]

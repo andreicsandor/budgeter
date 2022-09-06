@@ -1,13 +1,13 @@
 [
     {
-      "model": "app.type",
+      "model": "budgeter.type",
       "pk": 1,
       "fields": {
         "name": "Expense"
       }
     },
     {
-        "model": "app.type",
+        "model": "budgeter.type",
         "pk": 2,
         "fields": {
           "name": "Income"

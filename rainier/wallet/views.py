@@ -1,150 +1,16 @@
 import datetime
-from tempfile import TemporaryFile
 
-from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 
-from .forms import SignUpForm, LoginForm, UserForm, ProfileForm, TransactionForm
-from .models import Profile, Currency, Type, Category, Transaction
+from authenticator.models import Profile
+from budgeter.models import Category, Currency, Type
+from wallet.forms import TransactionForm
+from wallet.models import Transaction
 
 # Create your views here.
-
-def signup_view(request):
-    if request.user.is_authenticated:
-        return redirect('.')
-    elif request.method == "POST":
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('/configure')
-    else:
-        form = SignUpForm()
-
-    context = {
-        "form": form
-    }
-
-    return render(request, "forms/signup.html", context)
-
-
-@login_required
-def configure_view(request):
-    """
-    Displays the initial settings configuration page.
-    """
-    # Prevents the user from visiting the initial configuration again after the setup.
-    try:
-        if Profile.objects.get(user=request.user.id):
-            return redirect('.')
-    except ObjectDoesNotExist:
-        if request.method == "POST":
-            form = ProfileForm(request.POST)
-            if form.is_valid():
-                obj = form.save(commit=False)
-                obj.user = User.objects.get(pk=request.user.id)
-                obj.save()
-                return redirect('.')
-        else:
-            form = ProfileForm()
-
-    context = {
-        "form": form
-    }
-
-    return render(request, "forms/configure.html", context)
-
-
-def login_view(request):
-    if request.user.is_authenticated:
-        return redirect('.')
-    elif request.method == "POST":
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user = authenticate(request, username=username, password=password)
-            if user:
-                login(request, user)
-                return redirect('/')
-    else:
-        form = LoginForm()
-
-    context = {
-        "form": form
-    }
-
-    return render(request, "forms/login.html", context)
-
-
-def logout_view(request):
-    logout(request)
-
-    return redirect('/')
-
-
-@login_required
-def account_view(request):
-    """
-    Displays the account management page.
-    """
-    # Prevents the user from skipping the initial configuration step
-    try:
-        if Profile.objects.get(user=request.user.id):
-            pass
-    except ObjectDoesNotExist:
-        return redirect('/configure')
-
-    user = User.objects.get(pk=request.user.id)
-    form = UserForm(instance=user)
-    if request.method == "POST":
-        form = UserForm(request.POST, instance=user)
-        if form.is_valid():
-            obj = form.save(commit=False)
-            obj.save()
-            return redirect('/')
-
-    context = {
-        "form": form
-    }
-
-    return render(request, "forms/account.html", context)
-
-
-@login_required
-def preferences_view(request):
-    """
-    Displays the preferences page.
-    """
-    # Prevents the user from skipping the initial configuration step
-    try:
-        if Profile.objects.get(user=request.user.id):
-            pass
-    except ObjectDoesNotExist:
-        return redirect('/configure')
-
-    user = User.objects.get(pk=request.user.id)
-    profile = Profile.objects.get(user=user)
-    form = ProfileForm(instance=profile)
-    if request.method == "POST":
-        form = ProfileForm(request.POST, instance=profile)
-        if form.is_valid():
-            obj = form.save(commit=False)
-            obj.save()
-            return redirect('/account')
-
-    context = {
-        "form": form
-    }
-
-    return render(request, "forms/preferences.html", context)
-
 
 @login_required
 def home_view(request):
@@ -319,7 +185,7 @@ def create_view(request):
         "currency_symbol": currency_symbol
     }
 
-    return render(request, "forms/create.html", context)
+    return render(request, "create.html", context)
 
 
 @login_required
@@ -353,7 +219,7 @@ def edit_view(request, pk):
         "currency_symbol": currency_symbol
     }
 
-    return render(request, "forms/edit.html", context)
+    return render(request, "edit.html", context)
 
 
 @login_required
@@ -378,7 +244,7 @@ def delete_view(request, pk):
         "id": pk
     }
 
-    return render(request, "forms/delete.html", context)
+    return render(request, "delete.html", context)
 
 
 def categories_view(request):
@@ -388,7 +254,7 @@ def categories_view(request):
     type_id = request.GET.get('type_id')
     categories = Category.objects.filter(type_id=type_id).all()
 
-    return render(request, 'dropdowns/categories.html', {'categories': categories})
+    return render(request, 'categories.html', {'categories': categories})
 
 
 # Other functions 

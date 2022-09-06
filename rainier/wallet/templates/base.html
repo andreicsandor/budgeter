@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {% block title %}
+      <!-- Title goes here  -->
+      {% endblock %}
+    </title>
+
+    <!-- Bootsrap & jquery scripts -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Date range picker scripts -->
+    <script type="text/javascript" src="{% static 'js/moment.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/daterangepicker.js' %}"></script>   
+
+    <!-- Search suggestions script -->
+    <script type="text/javascript" src="{% static 'js/typehead.js' %}"></script>
+
+    <!-- Charts script -->
+    <script type="text/javascript" src="{% static 'js/chart.js' %}"></script>
+
+    <!-- Bootstrap elements & .css file path -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}"/>
+
+  </head>
+  
+  {% block content %}
+  <!-- Default content goes here -->
+  {% endblock %}
+
+</html>

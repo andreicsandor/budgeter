@@ -1,6 +1,6 @@
 [
     {
-      "model": "app.currency",
+      "model": "budgeter.currency",
       "pk": 1,
       "fields": {
         "name": "Dollar",
@@ -9,7 +9,7 @@
       }
     },
     {
-        "model": "app.currency",
+        "model": "budgeter.currency",
         "pk": 2,
         "fields": {
           "name": "Euro",
@@ -18,7 +18,7 @@
         }
     },
     {
-        "model": "app.currency",
+        "model": "budgeter.currency",
         "pk": 3,
         "fields": {
           "name": "British Pounds",
@@ -27,7 +27,7 @@
         }
     },
     {
-      "model": "app.currency",
+      "model": "budgeter.currency",
       "pk": 4,
       "fields": {
         "name": "Romanian Leu",
