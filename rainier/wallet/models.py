@@ -29,26 +29,16 @@ class Transaction(models.Model):
         return f"{self.user} - {self.date} - {self.category}, {self.type} - {self.name}, {self.amount}USD"
 
     def TransactionMonth(self):
-         month = self.date.strftime("%B")
-         # day = self.date.strftime("%-d")
-         # year = self.date.strftime("%Y")
-         return month
-
-    def TransactionName(self):
-        name = str(self.name)
-        return name
+        """Returns the formatted month of the transaction."""
+        return self.date.strftime("%B")
 
     def TransactionType(self):
-        type = str(self.type)
-        return type
+        """Returns the type of the transaction formatted as a string."""
+        return str(self.type)
 
     def TransactionCategory(self):
-        category = str(self.category)
-        return category
-
-    def TransactionNote(self):
-        note = str(self.note)
-        return note
+        """Returns the category of the transaction formatted as a string."""
+        return str(self.category)
 
     class Meta:
         verbose_name = 'Transaction'

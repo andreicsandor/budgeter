@@ -13,17 +13,13 @@ class Currency(models.Model):
     def __str__(self):
         return f"{self.symbol} {self.name}, {self.abbreviation}"
 
-    def CurrencyLong(self):
-        name = str(self.name)
-        return name
+    def CurrencyDetails(self):
+        """Returns the currency details."""
+        return self.abbreviation, self.symbol
 
-    def CurrencyShort(self):
-        abbreviation = str(self.abbreviation)
-        return abbreviation
-
-    def CurrencySymbol(self):
-        symbol = str(self.symbol)
-        return symbol
+    def CurrencyList(self):
+        """Retrieves the available currency types."""
+        return self.objects.all().order_by('name')
 
     class Meta:
         verbose_name = 'Currency'
@@ -39,9 +35,9 @@ class Type(models.Model):
     def __str__(self):
         return f"{self.name}"
 
-    def TypeName(self):
-        name = str(self.name)
-        return name
+    def TypeList(self):
+        """Retrieves the available transaction types."""
+        return self.objects.all().order_by('name')
 
     class Meta:
         verbose_name = 'Type'
@@ -60,13 +56,15 @@ class Category(models.Model):
     def __str__(self):
         return f"{self.logo} {self.name}"
 
-    def CategoryName(self):
-        name = str(self.name)
-        return name
+    def CategoryList(self):
+        """Retrieves the available transaction categories."""
+        categories_expenses = self.objects.filter(type="1").order_by('name')
+        categories_income = self.objects.filter(type="2").order_by('name')
+        return categories_expenses, categories_income
 
     def CategoryType(self):
-        type = str(self.type)
-        return type
+        """Returns the category type formatted as a string."""
+        return str(self.type)
 
     class Meta:
         verbose_name = 'Category'

@@ -17,8 +17,8 @@ class Profile(models.Model):
         return f"{self.user}"
 
     def ProfileCurrency(self):
-        currency = self.currency
-        return currency
+        """Retrieves the user's currency of choice."""
+        return Currency.CurrencyDetails(self.currency)
 
     class Meta:
         verbose_name = 'Profile'
