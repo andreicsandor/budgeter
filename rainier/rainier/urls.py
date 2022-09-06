@@ -16,21 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from authenticator import views as authentication_views
-from wallet import views as transactions_views
+from authenticator import views as authenticator_views
+from wallet import views as wallet_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('signup', authentication_views.signup_view, name='signup'),
-    path('configure', authentication_views.configure_view, name='configure'),
-    path('login', authentication_views.login_view, name='login'),
-    path('logout', authentication_views.logout_view, name='logout'),
-    path('account', authentication_views.account_view, name='account'),
-    path('preferences', authentication_views.preferences_view, name='preferences'),
-    path('', transactions_views.home_view, name='home'),
-    path('create', transactions_views.create_view, name='create'),
-    path('edit/<str:pk>', transactions_views.edit_view, name='edit'),
-    path('delete/<str:pk>', transactions_views.delete_view, name='delete'),
-    path('ajax/categories/', transactions_views.categories_view, name='ajax_categories'),
+    path('signup', authenticator_views.signup_view, name='signup'),
+    path('configure', authenticator_views.Utilities.setup, name='configure'),
+    path('login', authenticator_views.login_view, name='login'),
+    path('logout', authenticator_views.logout_view, name='logout'),
+    path('account', authenticator_views.Utilities.account, name='account'),
+    path('preferences', authenticator_views.Utilities.preferences, name='preferences'),
+    path('', wallet_views.Viewer.dashboard, name='home'),
+    path('create', wallet_views.Viewer.creator, name='create'),
+    path('edit/<str:pk>', wallet_views.Viewer.editor, name='edit'),
+    path('delete/<str:pk>', wallet_views.Viewer.eraser, name='delete'),
+    path('ajax/categories/', wallet_views.categories_view, name='ajax_categories'),
 ]
