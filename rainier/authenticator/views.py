@@ -10,7 +10,6 @@ from authenticator.models import Profile
 
 # Create your views here.
 
-@login_required
 class Utilities(View):
     """
     Represents a child class for views. 
@@ -19,6 +18,7 @@ class Utilities(View):
     initial settings configuration pages and forms.
     """
 
+    @login_required
     def setup(request):
         """Displays the initial settings configuration page and form."""
 
@@ -42,6 +42,7 @@ class Utilities(View):
         return render(request, "configure.html", context)
 
 
+    @login_required
     def account(request):
         """Displays the account management page and form."""
 
@@ -62,6 +63,7 @@ class Utilities(View):
         return render(request, "account.html", context)
 
 
+    @login_required
     def preferences(request):
         """Displays the preferences page and form."""
 
@@ -83,6 +85,7 @@ class Utilities(View):
         return render(request, "preferences.html", context)
 
 
+    @login_required
     def validator(request):
         """Prevents the user from skipping the initial configuration step."""
         try:

@@ -2,6 +2,7 @@ import datetime
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import redirect, render
 from django.views import View
 
@@ -14,7 +15,6 @@ from wallet.services import finder, get_entries, group_entries
 
 # Create your views here.
 
-@login_required
 class Viewer(View):
     """
     Represents a child class for views. 
@@ -23,6 +23,7 @@ class Viewer(View):
     main forms through multiple screens.
     """
 
+    @login_required 
     def dashboard(request):
         """Displays the corresponding entries & statistics for the current user."""
 
@@ -152,6 +153,7 @@ class Viewer(View):
         return render(request, "home.html", context)
 
 
+    @login_required 
     def creator(request):
         """Creates a new transaction entry."""
 
@@ -181,6 +183,7 @@ class Viewer(View):
         return render(request, "create.html", context)
 
 
+    @login_required 
     def editor(request, pk):
         """Edit an existing transaction entry."""
 
@@ -211,7 +214,8 @@ class Viewer(View):
 
         return render(request, "edit.html", context)
         
- 
+        
+    @login_required 
     def eraser(request, pk):
         """Delete an existing transaction entry."""
         
