@@ -11,6 +11,60 @@ from wallet.models import Transaction
 # Retrieves & groups the common and user-specific data
 
 @login_required
+def finder(request):
+    """Returns the corresponding entries for the applied search & filter criteria."""
+
+    # Unfiltered user-specific entries
+    qs = get_entries(request)
+
+    query_type = request.GET.get('input-type')
+    query_category_search = request.GET.get('input-category-search')
+    query_category = request.GET.get('input-category')
+    query_type_advanced = request.GET.get('input-type-advanced')
+    query_category_advanced = request.GET.get('input-category-advanced')
+    query_date = request.GET.get('input-date')
+    query_search = request.GET.get('input-search')
+
+    # Checks the corresponding match for the type filter
+    if query_type is not None:
+        qs = filter_type(qs, query_type)
+    # Checks the corresponding match for the category search input
+    if query_category_search is not None:
+        qs = search_category(qs, query_category_search)
+    # Checks the corresponding match for the category filter
+    if query_category is not None:
+        qs = filter_category(qs, query_category)
+    # Checks the corresponding match for the advanced filter
+    if query_type_advanced is None or query_type_advanced == "All":
+        if query_category_advanced is None or query_category_advanced == "All":
+            if query_date is not None:
+                qs = filter_date(qs, query_date)
+        else:
+            if query_date is not None:
+                qs_category = filter_category_advanced(qs, query_category_advanced)
+                qs_date = qs = filter_date(qs, query_date)
+                qs = qs_category & qs_date
+    else:
+        if query_category_advanced is None or query_category_advanced == "All":
+            if query_date is not None:
+                qs_type = filter_type_advanced(qs, query_type_advanced)
+                qs_date = filter_date(qs, query_date)
+                qs = qs_type & qs_date
+        else:
+            if query_date is not None:
+                qs_type = filter_type_advanced(qs, query_type_advanced)
+                qs_category = filter_category_advanced(qs, query_category_advanced)
+                qs_date = filter_date(qs, query_date)
+                qs = qs_type & qs_category & qs_date
+    
+    # Checks the corresponding match for the search input
+    if query_search is not None:
+        qs = search_all(qs, query_search)
+        
+    return qs
+
+
+@login_required
 def get_entries(request):
     """Retrieves the user's set of entries."""
     user = User.objects.get(pk=request.user.id)

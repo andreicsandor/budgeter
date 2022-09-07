@@ -8,9 +8,9 @@ from django.views import View
 from authenticator.models import Profile
 from authenticator.views import Utilities
 from budgeter.models import Category, Type
-from wallet import services
 from wallet.forms import TransactionForm
 from wallet.models import Transaction
+from wallet.services import finder, get_entries, group_entries
 
 # Create your views here.
 
@@ -36,11 +36,11 @@ class Viewer(View):
         # User-specific data
         profile = Profile.objects.get(user=request.user.id)
         currency_short, currency_symbol = Profile.ProfileCurrency(profile)
-        entries = services.get_entries(request)
-        expenses, income = services.group_entries(entries)
+        entries = get_entries(request)
+        expenses, income = group_entries(entries)
 
         # Filtered entries
-        query = Viewer.finder(request)
+        query = finder(request)
         
         # Computes the user's balance
         balance_total = 0
@@ -150,59 +150,6 @@ class Viewer(View):
         }
 
         return render(request, "home.html", context)
-
-
-    def finder(request):
-        """Returns the corresponding entries for the applied search & filter criteria."""
-
-        # Unfiltered user-specific entries
-        qs = services.get_entries(request)
-
-        query_type = request.GET.get('input-type')
-        query_category_search = request.GET.get('input-category-search')
-        query_category = request.GET.get('input-category')
-        query_type_advanced = request.GET.get('input-type-advanced')
-        query_category_advanced = request.GET.get('input-category-advanced')
-        query_date = request.GET.get('input-date')
-        query_search = request.GET.get('input-search')
-
-        # Checks the corresponding match for the type filter
-        if query_type is not None:
-            qs = services.filter_type(qs, query_type)
-        # Checks the corresponding match for the category search input
-        if query_category_search is not None:
-            qs = services.search_category(qs, query_category_search)
-        # Checks the corresponding match for the category filter
-        if query_category is not None:
-            qs = services.filter_category(qs, query_category)
-        # Checks the corresponding match for the advanced filter
-        if query_type_advanced is None or query_type_advanced == "All":
-            if query_category_advanced is None or query_category_advanced == "All":
-                if query_date is not None:
-                    qs = services.filter_date(qs, query_date)
-            else:
-                if query_date is not None:
-                    qs_category = services.filter_category_advanced(qs, query_category_advanced)
-                    qs_date = qs = services.filter_date(qs, query_date)
-                    qs = qs_category & qs_date
-        else:
-            if query_category_advanced is None or query_category_advanced == "All":
-                if query_date is not None:
-                    qs_type = services.filter_type_advanced(qs, query_type_advanced)
-                    qs_date = services.filter_date(qs, query_date)
-                    qs = qs_type & qs_date
-            else:
-                if query_date is not None:
-                    qs_type = services.filter_type_advanced(qs, query_type_advanced)
-                    qs_category = services.filter_category_advanced(qs, query_category_advanced)
-                    qs_date = services.filter_date(qs, query_date)
-                    qs = qs_type & qs_category & qs_date
-        
-        # Checks the corresponding match for the search input
-        if query_search is not None:
-            qs = services.search_all(qs, query_search)
-
-        return qs
 
 
     def creator(request):
