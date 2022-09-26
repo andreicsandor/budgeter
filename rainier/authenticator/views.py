@@ -46,8 +46,12 @@ class Utilities(View):
     def account(request):
         """Displays the account management page and form."""
 
-        # Prevents the user from skipping the initial configuration step
-        Utilities.validator(request)
+        # Prevents the user from skipping the initial configuration step.
+        try:
+            if Profile.objects.get(user=request.user.id):
+                pass
+        except ObjectDoesNotExist:
+            return redirect('/configure')
 
         user = User.objects.get(pk=request.user.id)
         form = UserForm(instance=user)
@@ -67,8 +71,12 @@ class Utilities(View):
     def preferences(request):
         """Displays the preferences page and form."""
 
-        # Prevents the user from skipping the initial configuration step
-        Utilities.validator(request)
+        # Prevents the user from skipping the initial configuration step.
+        try:
+            if Profile.objects.get(user=request.user.id):
+                pass
+        except ObjectDoesNotExist:
+            return redirect('/configure')
 
         user = User.objects.get(pk=request.user.id)
         profile = Profile.objects.get(user=user)
@@ -83,16 +91,6 @@ class Utilities(View):
         context = {"form": form}
 
         return render(request, "preferences.html", context)
-
-
-    @login_required
-    def validator(request):
-        """Prevents the user from skipping the initial configuration step."""
-        try:
-            if Profile.objects.get(user=request.user.id):
-                pass
-        except ObjectDoesNotExist:
-            return redirect('/configure')
 
 
 def signup_view(request):

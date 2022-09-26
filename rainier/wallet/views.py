@@ -7,7 +7,6 @@ from django.shortcuts import redirect, render
 from django.views import View
 
 from authenticator.models import Profile
-from authenticator.views import Utilities
 from budgeter.models import Category, Type
 from wallet.forms import TransactionForm
 from wallet.models import Transaction
@@ -27,8 +26,12 @@ class Viewer(View):
     def dashboard(request):
         """Displays the corresponding entries & statistics for the current user."""
 
-        # Prevents the user from skipping the initial configuration step
-        Utilities.validator(request)
+        # Prevents the user from skipping the initial configuration step.
+        try:
+            if Profile.objects.get(user=request.user.id):
+                pass
+        except ObjectDoesNotExist:
+            return redirect('/configure')
 
         # Common data
         types = Type.TypeList(Type)
@@ -157,8 +160,12 @@ class Viewer(View):
     def creator(request):
         """Creates a new transaction entry."""
 
-        # Prevents the user from skipping the initial configuration step
-        Utilities.validator(request)
+        # Prevents the user from skipping the initial configuration step.
+        try:
+            if Profile.objects.get(user=request.user.id):
+                pass
+        except ObjectDoesNotExist:
+            return redirect('/configure')
 
         # User-specific data
         profile = Profile.objects.get(user=request.user.id)
@@ -187,8 +194,12 @@ class Viewer(View):
     def editor(request, pk):
         """Edit an existing transaction entry."""
 
-        # Prevents the user from skipping the initial configuration step
-        Utilities.validator(request)
+        # Prevents the user from skipping the initial configuration step.
+        try:
+            if Profile.objects.get(user=request.user.id):
+                pass
+        except ObjectDoesNotExist:
+            return redirect('/configure')
 
         # User-specific data
         profile = Profile.objects.get(user=request.user.id)
@@ -219,8 +230,12 @@ class Viewer(View):
     def eraser(request, pk):
         """Delete an existing transaction entry."""
         
-        # Prevents the user from skipping the initial configuration step
-        Utilities.validator(request)
+        # Prevents the user from skipping the initial configuration step.
+        try:
+            if Profile.objects.get(user=request.user.id):
+                pass
+        except ObjectDoesNotExist:
+            return redirect('/configure')
 
         entry = Transaction.objects.get(id=pk)
         if request.method == "POST":
