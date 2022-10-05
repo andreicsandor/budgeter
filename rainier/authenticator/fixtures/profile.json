@@ -1,0 +1,9 @@
+[
+    {
+        "model": "authenticator.profile", 
+        "pk": 1, 
+        "fields": {
+            "user": 1, "currency": 1
+        }
+    }
+]
