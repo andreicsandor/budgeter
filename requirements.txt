@@ -1,1 +1,4 @@
 django==4.0.6
+django-extensions==3.2.1
+pyparsing==3.0.9
+pydot==1.4.2
