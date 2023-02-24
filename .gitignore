@@ -132,3 +132,5 @@ dmypy.json
 .pyre/
 rainier/app/migrations/
 .DS_Store
+exhibits.zip
+Rainier Documentation.pages
