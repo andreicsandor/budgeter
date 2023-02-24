@@ -32,6 +32,10 @@ class Transaction(models.Model):
         """Returns the formatted month of the transaction."""
         return self.date.strftime("%B")
 
+    def TransactionYear(self):
+        """Returns the year of the transaction."""
+        return self.date.strftime("%Y")
+
     def TransactionType(self):
         """Returns the type of the transaction formatted as a string."""
         return str(self.type)

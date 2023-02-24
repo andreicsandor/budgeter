@@ -12,6 +12,21 @@ from wallet.forms import TransactionForm
 from wallet.models import Transaction
 from wallet.services import finder, get_entries, group_entries
 
+MONTH_INDEX = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ]
+
 # Create your views here.
 
 class Viewer(View):
@@ -74,13 +89,17 @@ class Viewer(View):
         # Computes the absolute expenses & income for the current month
         expenses_current = 0
         income_current = 0
+
         day_current = datetime.datetime.now()
         month_current = day_current.strftime("%B")
+        year_current = datetime.datetime.now().strftime("%Y")
+        year_previous = str(datetime.datetime.now().year - 1)
+
         for entry in expenses:
-            if Transaction.TransactionMonth(entry) == month_current:
+            if Transaction.TransactionMonth(entry) == month_current and Transaction.TransactionYear(entry) == year_current:
                 expenses_current += entry.amount
         for entry in income:
-            if Transaction.TransactionMonth(entry) == month_current:
+            if Transaction.TransactionMonth(entry) == month_current and Transaction.TransactionYear(entry) == year_current:
                 income_current += entry.amount
 
         # Computes the relative expenses & income for the current month
@@ -100,16 +119,37 @@ class Viewer(View):
             months_previous_start = (month_current_start - datetime.timedelta(days=1)).replace(day=1)
             month_current_start = months_previous_start
             months_previous.append(month_current_start.strftime("%B"))
+
         expenses_previous = dict.fromkeys(months_previous, 0)
-        for month in months_previous:
-            for entry in expenses:
-                if Transaction.TransactionMonth(entry) == month:
-                    expenses_previous[month] += entry.amount
         income_previous = dict.fromkeys(months_previous, 0)
-        for month in months_previous:
-            for entry in income:
-                if Transaction.TransactionMonth(entry) == month:
-                    income_previous[month] += entry.amount
+        
+        # Covers the case when the previous 6 months are in the current year
+        if months_previous == sorted(months_previous, key=MONTH_INDEX.index, reverse=True):  
+            for month in months_previous:
+                for entry in expenses:
+                    if Transaction.TransactionMonth(entry) == month and Transaction.TransactionYear(entry) == year_current:
+                        expenses_previous[month] += entry.amount
+                for entry in income:
+                    if Transaction.TransactionMonth(entry) == month and Transaction.TransactionYear(entry) == year_current:
+                        income_previous[month] += entry.amount  
+
+        # Covers the case when in the previous 6 months two years overlap
+        else:
+            for month in months_previous:
+                for entry in expenses:
+                    if month in ["January", "February", "March", "April", "May"]:
+                        if Transaction.TransactionMonth(entry) == month and Transaction.TransactionYear(entry) == year_current:
+                            expenses_previous[month] += entry.amount
+                    else:
+                        if Transaction.TransactionMonth(entry) == month and Transaction.TransactionYear(entry) == year_previous:
+                            expenses_previous[month] += entry.amount
+                for entry in income:
+                    if month in ["January", "February", "March", "April", "May"]:
+                        if Transaction.TransactionMonth(entry) == month and Transaction.TransactionYear(entry) == year_current:
+                            income_previous[month] += entry.amount      
+                    else:
+                        if Transaction.TransactionMonth(entry) == month and Transaction.TransactionYear(entry) == year_previous:
+                            income_previous[month] += entry.amount 
 
         # Generates the chart data for the current expenses overview
         labels_expenses_current = [category.name for category in categories_expenses]
