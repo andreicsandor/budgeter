@@ -17,7 +17,7 @@
                     <ul class="nav col-4 ms-1 me-auto">
                             
                         <!-- Entry types dropdown -->
-                        <div class="button" id="dropdown-types" name="dropdown-types">
+                        <div class="button" id="dropdown-types" name="dropdown-types" title="Types">
                             <a class="align-items-center link-secondary text-decoration-none" id="button-header" name="button-types" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                 <svg class="bi me-2" xmlns="http://www.w3.org/2000/svg" width="38" height="23" fill="currentColor" viewBox="0 0 16 16">
                                     <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z"/>
@@ -39,7 +39,7 @@
                         </div>
 
                         <!-- Entry categories dropdown -->
-                        <div class="button" id="dropdown-categories" name="dropdown-categories">
+                        <div class="button" id="dropdown-categories" name="dropdown-categories" title="Categories">
                             <a class="align-items-center link-secondary text-decoration-none" id="button-header" name="button-categories" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                 <svg class="bi me-2" xmlns="http://www.w3.org/2000/svg" width="38" height="23" fill="currentColor" viewBox="0 0 16 16">
                                     <path d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
@@ -73,7 +73,7 @@
                         </div>
                         
                         <!-- Advanced filter menu -->
-                        <div class="button" id="show-finder" name="show-finder" data-bs-toggle="window-finder" data-bs-target="#window-finder"> 
+                        <div class="button" id="show-finder" name="show-finder" data-bs-toggle="window-finder" data-bs-target="#window-finder" title="Advanced filter"> 
                             <a class="align-items-center link-secondary text-decoration-none" id="button-header" name="button-filter" href="#" data-bs-toggle="offcanvas" data-bs-target="#window-finder" aria-expanded="false">
                                 <svg class="bi me-2" xmlns="http://www.w3.org/2000/svg" width="38" height="22" fill="currentColor" viewBox="0 0 16 16">
                                     <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
@@ -88,7 +88,7 @@
                     </form>
                     
                     <!-- Settings dropdown -->
-                    <div class="nav col-auto">
+                    <div class="nav col-auto" title="Options">
                         <a class="align-items-center link-secondary text-decoration-none" id="button-header" name="button-settings" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <svg class="bi me-2" xmlns="http://www.w3.org/2000/svg" width="38" height="22" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
@@ -213,7 +213,7 @@
             <div class="modal-dialog modal-lg mt-2 mb-0">
                 <div class="modal-content" id="modal-tags" name="modal-tags">
                     <div class="d-flex flex-row justify-content-end">
-                        <button class="btn btn-dark btn-sm position-relative" id="button-clear" name="button-clear" type="button" style="display: none;" onclick="location.href=''">
+                        <button class="btn btn-dark btn-sm position-relative" id="button-clear" name="button-clear" type="button" style="display: none;" title="Clear all filters" onclick="location.href=''">
                             Tag
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">×</span>
                         </button>
