@@ -976,5 +976,609 @@
     "category": 1,
     "note": "Kitchen & bathroom"
   }
+},
+
+
+
+
+
+{
+  "model": "wallet.transaction",
+  "pk": 68,
+  "fields": {
+    "user": 1,
+    "created": "2022-10-05T09:41:00.000Z",
+    "date": "2022-10-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 69,
+  "fields": {
+    "user": 1,
+    "created": "2022-10-05T09:41:00.000Z",
+    "date": "2022-10-05",
+    "type": 2,
+    "name": "Dividends",
+    "amount": "489.00",
+    "category": 13,
+    "note": "Annual dividends from stock market investments"
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 70,
+  "fields": {
+    "user": 1,
+    "created": "2022-10-05T09:41:00.000Z",
+    "date": "2022-10-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "310.00",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 71,
+  "fields": {
+    "user": 1,
+    "created": "2022-10-15T09:41:00.000Z",
+    "date": "2022-10-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 72,
+  "fields": {
+    "user": 1,
+    "created": "2022-10-25T09:41:00.000Z",
+    "date": "2022-10-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 73,
+  "fields": {
+    "user": 1,
+    "created": "2022-10-25T09:41:00.000Z",
+    "date": "2022-10-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 74,
+  "fields": {
+    "user": 1,
+    "created": "2022-10-25T09:41:00.000Z",
+    "date": "2022-10-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+
+
+
+
+
+{
+  "model": "wallet.transaction",
+  "pk": 75,
+  "fields": {
+    "user": 1,
+    "created": "2022-11-05T09:41:00.000Z",
+    "date": "2022-11-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 76,
+  "fields": {
+    "user": 1,
+    "created": "2022-11-05T09:41:00.000Z",
+    "date": "2022-11-05",
+    "type": 2,
+    "name": "Dividends",
+    "amount": "489.00",
+    "category": 13,
+    "note": "Annual dividends from stock market investments"
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 77,
+  "fields": {
+    "user": 1,
+    "created": "2022-11-05T09:41:00.000Z",
+    "date": "2022-11-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "310.00",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 78,
+  "fields": {
+    "user": 1,
+    "created": "2022-11-15T09:41:00.000Z",
+    "date": "2022-11-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 79,
+  "fields": {
+    "user": 1,
+    "created": "2022-11-25T09:41:00.000Z",
+    "date": "2022-11-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 80,
+  "fields": {
+    "user": 1,
+    "created": "2022-11-25T09:41:00.000Z",
+    "date": "2022-11-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 81,
+  "fields": {
+    "user": 1,
+    "created": "2022-11-25T09:41:00.000Z",
+    "date": "2022-11-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+
+
+
+
+
+{
+  "model": "wallet.transaction",
+  "pk": 82,
+  "fields": {
+    "user": 1,
+    "created": "2022-12-05T09:41:00.000Z",
+    "date": "2022-12-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 83,
+  "fields": {
+    "user": 1,
+    "created": "2022-12-05T09:41:00.000Z",
+    "date": "2022-12-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "315.87",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 84,
+  "fields": {
+    "user": 1,
+    "created": "2022-12-15T09:41:00.000Z",
+    "date": "2022-12-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 85,
+  "fields": {
+    "user": 1,
+    "created": "2022-12-25T09:41:00.000Z",
+    "date": "2022-12-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 86,
+  "fields": {
+    "user": 1,
+    "created": "2022-12-25T09:41:00.000Z",
+    "date": "2022-12-25",
+    "type": 1,
+    "name": "Repairs",
+    "amount": "3341.58",
+    "category": 1,
+    "note": "Rooftop, door & fence"
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 87,
+  "fields": {
+    "user": 1,
+    "created": "2022-12-25T09:41:00.000Z",
+    "date": "2022-12-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 88, 
+  "fields": {
+    "user": 1,
+    "created": "2022-12-25T09:41:00.000Z",
+    "date": "2022-12-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+
+
+
+
+
+{
+  "model": "wallet.transaction",
+  "pk": 89,
+  "fields": {
+    "user": 1,
+    "created": "2023-01-05T09:41:00.000Z",
+    "date": "2023-01-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 90,
+  "fields": {
+    "user": 1,
+    "created": "2023-01-05T09:41:00.000Z",
+    "date": "2023-01-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "389.99",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 91,
+  "fields": {
+    "user": 1,
+    "created": "2023-01-15T09:41:00.000Z",
+    "date": "2023-01-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 92,
+  "fields": {
+    "user": 1,
+    "created": "2023-01-19T09:41:00.000Z",
+    "date": "2023-01-19",
+    "type": 1,
+    "name": "Holiday",
+    "amount": "378.45",
+    "category": 8,
+    "note": "Trip to Rome, Italy"
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 93,
+  "fields": {
+    "user": 1,
+    "created": "2023-01-19T09:41:00.000Z",
+    "date": "2023-01-19",
+    "type": 1,
+    "name": "Airplane tickets",
+    "amount": "85.99",
+    "category": 5,
+    "note": "Flight to Zurich, Switzerland"
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 94,
+  "fields": {
+    "user": 1,
+    "created": "2023-01-19T09:41:00.000Z",
+    "date": "2023-01-19",
+    "type": 1,
+    "name": "Train tickets",
+    "amount": "39.99",
+    "category": 5,
+    "note": "Train to Rome, Italy"
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 95,
+  "fields": {
+    "user": 1,
+    "created": "2023-01-21T09:41:00.000Z",
+    "date": "2023-01-21",
+    "type": 1,
+    "name": "Clothes",
+    "amount": "279.31",
+    "category": 10,
+    "note": ""
+  }
+},
+
+
+
+
+
+{
+  "model": "wallet.transaction",
+  "pk": 96,
+  "fields": {
+    "user": 1,
+    "created": "2023-02-05T09:41:00.000Z",
+    "date": "2023-02-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 97,
+  "fields": {
+    "user": 1,
+    "created": "2023-02-05T09:41:00.000Z",
+    "date": "2023-02-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "350.00",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 98,
+  "fields": {
+    "user": 1,
+    "created": "2023-02-15T09:41:00.000Z",
+    "date": "2023-02-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 99,
+  "fields": {
+    "user": 1,
+    "created": "2023-01-15T09:41:00.000Z",
+    "date": "2023-01-15",
+    "type": 1,
+    "name": "Cinema",
+    "amount": "29.99",
+    "category": 7,
+    "note": "Also bought Joanna's ticket"
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 100,
+  "fields": {
+    "user": 1,
+    "created": "2023-02-25T09:41:00.000Z",
+    "date": "2023-02-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 101,
+  "fields": {
+    "user": 1,
+    "created": "2023-02-25T09:41:00.000Z",
+    "date": "2023-02-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 102,
+  "fields": {
+    "user": 1,
+    "created": "2023-02-25T09:41:00.000Z",
+    "date": "2023-02-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
+},
+
+
+
+
+
+{
+  "model": "wallet.transaction",
+  "pk": 103,
+  "fields": {
+    "user": 1,
+    "created": "2023-03-05T09:41:00.000Z",
+    "date": "2023-03-05",
+    "type": 2,
+    "name": "Salary",
+    "amount": "2500.00",
+    "category": 11,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 104,
+  "fields": {
+    "user": 1,
+    "created": "2023-03-05T09:41:00.000Z",
+    "date": "2023-03-05",
+    "type": 1,
+    "name": "Food & water",
+    "amount": "325.00",
+    "category": 3,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 105,
+  "fields": {
+    "user": 1,
+    "created": "2023-03-15T09:41:00.000Z",
+    "date": "2023-03-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 106,
+  "fields": {
+    "user": 1,
+    "created": "2023-03-25T09:41:00.000Z",
+    "date": "2023-03-20",
+    "type": 1,
+    "name": "Electricity bill",
+    "amount": "19.99",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 107,
+  "fields": {
+    "user": 1,
+    "created": "2023-03-25T09:41:00.000Z",
+    "date": "2023-03-20",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "39.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 108,
+  "fields": {
+    "user": 1,
+    "created": "2023-03-25T09:41:00.000Z",
+    "date": "2023-03-20",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "9.99",
+    "category": 5,
+    "note": ""
+  }
 }
 ]
