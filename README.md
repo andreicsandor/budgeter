@@ -14,11 +14,11 @@ Budgeter is divided into three separate applications, the authenticator, the bud
 ## Objectives
 Budgeter aims to provide an intuitive application that enables users to record and manage their day-to-day financial transactions, including expenditures and earnings.
 
-- ```Keep track of your financial habits```: Create, read, update and delete budget entries, or simply navigate through past transactions and learn where all you money goes and comes from.
-- ```Filter & search with ease```: Filter entries based on categories and transaction types.
-- ```Find everything you need```: Look up entries using key words, such as names, types, categories and notes.
-- ```See what’s going on```: See statistics at a glance and rewind the previous six months by looking at cash-flow trends.
-- ```Manage account & settings```: Make your account your very own and change regional settings.
+- ```Keep track of your financial habits``` Create, read, update and delete budget entries, or simply navigate through past transactions and learn where all you money goes and comes from.
+- ```Filter & search with ease``` Filter entries based on categories and transaction types.
+- ```Find everything you need``` Look up entries using key words, such as names, types, categories and notes.
+- ```See what’s going on``` See statistics at a glance and rewind the previous six months by looking at cash-flow trends.
+- ```Manage account & settings``` Make your account your very own and change regional settings.
 
 
 ## Installation guide
