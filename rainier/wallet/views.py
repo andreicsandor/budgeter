@@ -155,7 +155,7 @@ class Viewer(View):
         labels_expenses_current = [category.name for category in categories_expenses]
         data_expenses_current = dict.fromkeys(labels_expenses_current, 0)
         for entry in expenses:
-            if month_current == Transaction.TransactionMonth(entry):
+            if month_current == Transaction.TransactionMonth(entry) and Transaction.TransactionYear(entry) == year_current:
                 # Ignores the category logo
                 category = Transaction.TransactionCategory(entry).replace(" ", "")[1:]
                 data_expenses_current[category] += entry.amount
