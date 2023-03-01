@@ -22,7 +22,7 @@ Budgeter aims to provide an intuitive application that enables users to record a
 
 
 ## Installation guide
-    ```
+    
     # Clone the repository and open the project’s folder
     $ git clone https://github.com/andreicsandor/project-rainier.git
     
@@ -52,4 +52,4 @@ Budgeter aims to provide an intuitive application that enables users to record a
     
     # Run the server
     $ python manage.py runserver
-    ```
+    
