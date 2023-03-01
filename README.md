@@ -10,7 +10,7 @@ Budgeter is divided into three separate applications, the authenticator, the bud
 - The **system documentation** includes details on the application backlog, information architecture, user-flow scheme and models included in the project. PDF files containing images may be found in the root folder.
 
 
-## User documentation
+> User documentation
 
 ## Objectives
 Budgeter aims to provide an intuitive application that enables users to record and manage their day-to-day financial transactions, including expenditures and earnings.
@@ -54,7 +54,7 @@ Budgeter aims to provide an intuitive application that enables users to record a
     $ python manage.py runserver
     
 
-## System documentation
+> System documentation
 
 ## User story map
 This presents the application backlog and each user story which denotes the most typical interactions one can expect while using a budgeting application. We highlight the available functions in the minimum viable product (MVP) and planned features for future releases.
@@ -77,5 +77,3 @@ One-to-one relationship between User and Profile.
 - ```Type``` Related to multiple records in the Transaction table. Many-to-one relationship between Transaction and Type.
 Related to multiple records in the Category table. Many-to-one relationship between Category and Type.
 - ```Category``` Related to multiple records in the Transaction table. Many-to-one relationship between Transaction and Category.
-
-
