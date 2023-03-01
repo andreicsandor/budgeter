@@ -1,9 +1,11 @@
 # Budgeter
 #### Video Demo: 
 
+
 ## Overview
 Budgeter is a simple and user-friendly budgeting tool that helps users to keep track of their financial habits, whether it is about spending or earning money.
 Budgeter is divided into three separate applications, the authenticator, the budgeter and the wallet. Its modularity allows for re-usability and ease of maintenance.
+
 
 ## Contents
 - The **user documentation** presents the main functionalities of Budgeter, provides thorough installation instructions and gives tips on how to use the application’s main dashboard.
@@ -56,16 +58,16 @@ Budgeter aims to provide an intuitive application that enables users to record a
 
 ## System documentation
 
-#### User story map
+#### User Story map
 This presents the application backlog and each user story which denotes the most typical interactions one can expect while using a budgeting application. We highlight the available functions in the minimum viable product (MVP) and planned features for future releases.
 
-#### Product Map
+#### Product map
 The map is a visual scheme of the information architecture and helps visualise the structure of the application. The main pages of the web application are Authentication, Settings, Dashboard and Editor.
 
-#### User Journey Scheme
+#### User Journey scheme
 This sub-section presents the user flow scheme and depicts all the possible steps a user may take while using the budgeting app. The scheme starts with the authentication process and covers the user movement logic across the dashboard interaction, CRUD operations, account & preferences management, and signing out process.
 
-#### Database Scheme
+#### Database scheme
 The project functionalities are factored into three separate apps, the Authenticator, Budgeter and Wallet. Each application serves its specific processes and related scenarios, while also fetching the relevant data from its associated models.
 The entire database comprises six models: User, Profile, Currency, Type, Category and Transaction.
 
