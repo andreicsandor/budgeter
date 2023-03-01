@@ -10,9 +10,9 @@ Budgeter is divided into three separate applications, the authenticator, the bud
 - The **system documentation** includes details on the application backlog, information architecture, user-flow scheme and models included in the project. PDF files containing images may be found in the root folder.
 
 
-> User documentation
+## User documentation
 
-## Objectives
+#### Objectives
 Budgeter aims to provide an intuitive application that enables users to record and manage their day-to-day financial transactions, including expenditures and earnings.
 
 - ```Keep track of your financial habits``` Create, read, update and delete budget entries, or simply navigate through past transactions and learn where all you money goes and comes from.
@@ -21,7 +21,7 @@ Budgeter aims to provide an intuitive application that enables users to record a
 - ```See what’s going on``` See statistics at a glance and rewind the previous six months by looking at cash-flow trends.
 - ```Manage account & settings``` Make your account your very own and change regional settings.
 
-## Installation guide
+#### Installation guide
     
     # Clone the repository and open the project’s folder
     $ git clone https://github.com/andreicsandor/project-rainier.git
@@ -54,18 +54,18 @@ Budgeter aims to provide an intuitive application that enables users to record a
     $ python manage.py runserver
     
 
-> System documentation
+## System documentation
 
-## User story map
+#### User story map
 This presents the application backlog and each user story which denotes the most typical interactions one can expect while using a budgeting application. We highlight the available functions in the minimum viable product (MVP) and planned features for future releases.
 
-## Product Map
+#### Product Map
 The map is a visual scheme of the information architecture and helps visualise the structure of the application. The main pages of the web application are Authentication, Settings, Dashboard and Editor.
 
-## User Journey Scheme
+#### User Journey Scheme
 This sub-section presents the user flow scheme and depicts all the possible steps a user may take while using the budgeting app. The scheme starts with the authentication process and covers the user movement logic across the dashboard interaction, CRUD operations, account & preferences management, and signing out process.
 
-## Database Scheme
+#### Database Scheme
 The project functionalities are factored into three separate apps, the Authenticator, Budgeter and Wallet. Each application serves its specific processes and related scenarios, while also fetching the relevant data from its associated models.
 The entire database comprises six models: User, Profile, Currency, Type, Category and Transaction.
 
