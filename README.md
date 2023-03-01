@@ -8,7 +8,7 @@ Budgeter is divided into three separate applications, the authenticator, the bud
 
 ## Contents
 - The **user documentation** presents the main functionalities of Budgeter, provides thorough installation instructions and gives tips on how to use the application’s main dashboard.
-- The **system documentation** includes details on the application backlog, information architecture, user-flow scheme and models included in the project.
+- The **system documentation** includes details on the application backlog, information architecture, user-flow scheme and models included in the project. PDF files may be found in the root folder.
 
 
 ## Objectives
@@ -53,3 +53,17 @@ Budgeter aims to provide an intuitive application that enables users to record a
     # Run the server
     $ python manage.py runserver
     
+
+## Database Scheme
+The project functionalities are factored into three separate apps, the Authenticator, Budgeter and Wallet. Each application serves its specific processes and related scenarios, while also fetching the relevant data from its associated models.
+The entire database comprises six models: User, Profile, Currency, Type, Category and Transaction.
+
+- ```User``` Related to multiple records in the Transaction table. Many-to-one relationship between Transaction and User.
+Related to individual records in the Profile table. One-to-one relationship between Profile and User.
+- ```Profile``` Extends the base User model and contains user-specific settings, such as preferred currency.
+One-to-one relationship between User and Profile.
+- ```Currency``` Related to multiple records in the Profile table. Many-to-one relationship between Profile and Currency.
+- ```Type``` Related to multiple records in the Transaction table. Many-to-one relationship between Transaction and Type.
+Related to multiple records in the Category table. Many-to-one relationship between Category and Type.
+- ```Category``` Related to multiple records in the Transaction table. Many-to-one relationship between Transaction and Category.
+
