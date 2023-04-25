@@ -1580,5 +1580,66 @@
     "category": 5,
     "note": ""
   }
+},
+
+
+
+
+
+{
+  "model": "wallet.transaction",
+  "pk": 109,
+  "fields": {
+    "user": 1,
+    "created": "2023-04-01T09:41:00.000Z",
+    "date": "2023-04-01",
+    "type": 1,
+    "name": "Buss & tram pass",
+    "amount": "19.99",
+    "category": 5,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 110,
+  "fields": {
+    "user": 1,
+    "created": "2023-04-05T09:41:00.000Z",
+    "date": "2023-04-05",
+    "type": 1,
+    "name": "Water bill",
+    "amount": "45.59",
+    "category": 2,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 111,
+  "fields": {
+    "user": 1,
+    "created": "2023-04-15T09:41:00.000Z",
+    "date": "2023-04-15",
+    "type": 1,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 4,
+    "note": ""
+  }
+},
+{
+  "model": "wallet.transaction",
+  "pk": 112,
+  "fields": {
+    "user": 1,
+    "created": "2023-04-15T09:41:00.000Z",
+    "date": "2023-04-15",
+    "type": 2,
+    "name": "Vitamins",
+    "amount": "19.59",
+    "category": 11,
+    "note": ""
+  }
 }
 ]
